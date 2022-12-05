@@ -1,5 +1,5 @@
 <template>
-<div>
+<div> 
 </div>
 </template>
 
@@ -12,5 +12,6 @@ export default {
 <style>
 body{
   background: #181818;
+  color: white;
 }
 </style>

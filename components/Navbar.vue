@@ -34,14 +34,9 @@
 
     <!-- mobile mode -->
     <div
-      :class="{ openNav: nav - parent }"
-      class="d-flex flex-row-reverse justify-content-between"
+      :class="{'nav-parent': !openNav }"
+      class="d-flex justify-content-between"
     >
-      <b-navbar-brand
-        to="/#"
-        class="navbar-brand text-light text-center mt-2 d-lg-none d-block"
-        >Lampo</b-navbar-brand
-      >
       <b-navbar-nav
         class="nav p-3 pt-4"
         :class="{ openNav: openNav }"
@@ -128,9 +123,10 @@ export default {
 }
 
 .nav-parent {
+  position: absolute;
   width: 100%;
   height: 100vh;
-  background: #4b4a4a3d;
+  background: #00000083;
 }
 
 .menu-icon:hover {
