@@ -1,17 +1,17 @@
 <template>
   <div>
-    <div class="d-flex p-5">
-      <div class="hero-img col-4">
+    <div class="d-flex flex-wrap p-md-5 p-4">
+      <div class="hero-img col-md-4 d-none d-md-block">
         <img src="../assets/img/chandelier5.jpg" class="w-100 h-100" />
       </div>
 
-      <div class="col-5 pr-5 pl-5 ml-5 mt-3">
+      <div class="col-md-5 col-12 pr-md-5 pl-md-5 ml-md-5 mt-md-3">
         <h1 class="header-txt">Light Up Your Home</h1>
         <p class="text-secondary">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eos eum
           doloremque in iusto corrupti deleniti dolores reiciendis?
         </p>
-        <div class="d-flex">
+        <div class="d-flex flex-wrap">
           <nuxt-link
             to="/"
             class="
@@ -33,29 +33,29 @@
           </div>
         </div>
 
-        <div class="mt-5 d-flex">
-          <div>
+        <div class="mt-5 d-flex flex-wrap">
+          <div class="col-md-3 col-6">
             <h2>27<span class="k">K+</span></h2>
             <p class="text-secondary">
-              Lorem ipsum, dolor sit amet
+              Lorem ipsum, dolor
             </p>
           </div>
-          <div>
+          <div class="col-md-3 col-6">
             <h2>34<span class="k">K+</span></h2>
             <p class="text-secondary">
-              Lorem ipsum, dolor sit amet
+              Lorem ipsum, dolor
             </p>
           </div>
-          <div>
+          <div class="col-md-3 col-6">
             <h2>165<span class="k">K+</span></h2>
             <p class="text-secondary">
-              Lorem ipsum, dolor sit amet
+              Lorem ipsum, dolor
             </p>
           </div>
-          <div>
+          <div class="col-md-3 col-6">
             <h2>50<span class="k">+</span></h2>
             <p class="text-secondary">
-              Lorem ipsum, dolor sit amet
+              Lorem ipsum, dolor
             </p>
           </div>
         </div>
