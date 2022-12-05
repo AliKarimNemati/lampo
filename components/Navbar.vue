@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <div class="top-nav">
     <!-- desktop mode -->
     <b-navbar
       toggleable="lg"
       type="dark"
-      class="fixed-top pr-lg-5 pr-2 pl-lg-5 pl-2"
+      class=" pr-lg-5 pr-2 pl-lg-5 pl-2"
     >
       <i
         :class="{ 'bi-list': openNav, 'bi-x': !openNav }"
-        class="bi h1 text-light menu-icon d-lg-none d-block"
+        class="bi h1 text-light menu-icon d-lg-none d-block  m-2"
         @click="handleOpenNav"
       ></i>
       <div class="mt-3 d-lg-flex justify-content-between col-12 d-none">
@@ -106,7 +106,9 @@ export default {
   width: 60%;
   background: rgb(71, 71, 71);
   height: 100vh;
-  position: relative;
+  z-index: 100;
+  position: fixed;
+  top: 0;
 }
 
 .openNav {
@@ -128,8 +130,19 @@ export default {
   height: 100vh;
   background: #00000083;
 }
+.menu-icon{
+  z-index: 122;
+}
 
 .menu-icon:hover {
   color: gold !important;
+}
+
+.top-nav{
+  background: #181818;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 150;
 }
 </style>
