@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-4 card-product bg-dark col-md col-9">
+  <div class="mt-4 card-product bg-dark ">
     <div class="card-img col-12">
       <img :src="'img/'+lamp.img" class="w-100 h-100"/>
     </div>
