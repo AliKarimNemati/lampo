@@ -2,7 +2,7 @@
   <div>
     <div class="d-flex flex-wrap p-md-5 p-4">
       <div class="hero-img col-md-4 d-none d-md-block">
-        <img src="../assets/img/chandelier5.jpg" class="w-100 h-100" />
+        <img src="img/chandelier5.jpg" class="w-100 h-100" />
       </div>
 
       <div class="col-md-5 col-12 pr-md-5 pl-md-5 ml-md-5 mt-md-3">
@@ -87,11 +87,12 @@ export default {};
   background: #ff5c01;
 }
 .play-icon {
-  border: 1px solid #fff;
+  border: 1.6px solid #fff;
   border-radius: 50%;
   width: 40px;
   height: 40px;
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .play-icon i {

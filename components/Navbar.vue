@@ -1,15 +1,10 @@
 <template>
   <div class="top-nav">
     <!-- desktop mode -->
-    <b-navbar
-      toggleable="lg"
-      type="dark"
-      class=" pr-lg-5 pr-2 pl-lg-5 pl-2"
-    >
+    <b-navbar toggleable="lg" type="dark" class="pr-lg-5 pr-2 pl-lg-5 pl-2">
       <i
-        :class="{ 'bi-list': openNav, 'bi-x': !openNav }"
-        class="bi h1 text-light menu-icon d-lg-none d-block  m-2"
-        @click="handleOpenNav"
+        class="bi bi-list h1 text-light menu-icon d-lg-none d-block m-2"
+        v-b-toggle.sidebar-backdrop
       ></i>
       <div class="mt-3 d-lg-flex justify-content-between col-12 d-none">
         <b-navbar-nav>
@@ -33,40 +28,44 @@
     </b-navbar>
 
     <!-- mobile mode -->
-    <div
-      :class="{'nav-parent': !openNav }"
-      class="d-flex justify-content-between"
+    <b-sidebar
+      id="sidebar-backdrop"
+      title="Lampo"
+      backdrop-variant="dark"
+      bg-variant="dark"
+      text-variant="light"
+      backdrop
+      shadow
     >
-      <b-navbar-nav
-        class="nav p-3 pt-4"
-        :class="{ openNav: openNav }"
-        v-if="!openNav"
+      <div
+        class="d-flex justify-content-between "
       >
-        <b-navbar-brand to="/#" class="navbar-brand text-light text-center"
-          >Lampo</b-navbar-brand
+        <b-navbar-nav
+          class=" p-3 pt-4 nav"
         >
-        <div class="mt-2">
-          <input
-            type="search"
-            class="search-input mr-4 text-light rounded-pill ml-auto mr-auto"
-            placeholder="search"
-          />
-        </div>
-        <nuxt-link
-          to="/"
-          class="text-light m-0 pt-1 bi bi-bag-dash h4 text-center mt-2"
-        ></nuxt-link>
-        <nuxt-link to="/" class="text-light text-center mt-2" active
-          >Product</nuxt-link
-        >
-        <nuxt-link to="/" class="text-light text-center mt-2" active
-          >Features</nuxt-link
-        >
-        <nuxt-link to="/" class="text-light text-center mt-2" active
-          >Contact</nuxt-link
-        >
-      </b-navbar-nav>
-    </div>
+          <div class="mt-2">
+            <input
+              type="search"
+              class="search-input mr-4 text-light rounded-pill ml-auto mr-auto"
+              placeholder="search"
+            />
+          </div>
+          <nuxt-link
+            to="/"
+            class="text-light m-0 pt-1 bi bi-bag-dash h4 text-center mt-2"
+          ></nuxt-link>
+          <nuxt-link to="/" class="text-light text-center mt-2" active
+            >Product</nuxt-link
+          >
+          <nuxt-link to="/" class="text-light text-center mt-2" active
+            >Features</nuxt-link
+          >
+          <nuxt-link to="/" class="text-light text-center mt-2" active
+            >Contact</nuxt-link
+          >
+        </b-navbar-nav>
+      </div>
+    </b-sidebar>
   </div>
 </template>
 
@@ -96,24 +95,16 @@ export default {
   padding: 8px 16px;
   outline: none;
   border: none;
-}
+  display: flex;
+  justify-content: center;
+} 
 
 .search-input:focus {
   outline: gold solid 1px;
 }
 
 .nav {
-  width: 60%;
-  background: rgb(71, 71, 71);
-  height: 100vh;
-  z-index: 100;
-  position: fixed;
-  top: 0;
-}
-
-.openNav {
-  position: absolute;
-  right: 120%;
+  width: 100%;
 }
 
 .nav-link {
@@ -124,21 +115,11 @@ export default {
   color: gold !important;
 }
 
-.nav-parent {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  background: #00000083;
-}
-.menu-icon{
-  z-index: 122;
-}
-
 .menu-icon:hover {
   color: gold !important;
 }
 
-.top-nav{
+.top-nav {
   background: #181818;
   position: fixed;
   width: 100%;
