@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="p-md-5 p-4">
     <h2 class="header-feature h1 text-center">Our Products</h2>
     <p class="text-secondary text-center">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, ex?
