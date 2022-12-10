@@ -32,7 +32,7 @@ export const state = () =>({
         },
         {
             id: 6,
-            name: 'lamp',
+            name: 'simple lamp',
             price: 25,
             img: "lamp3.jpg"
         },
@@ -50,7 +50,7 @@ export const state = () =>({
         },
         {
             id: 9,
-            name: 'lantern',
+            name: 'modern lantern',
             price: 30,
             img: "lamp4.jpg"
         },

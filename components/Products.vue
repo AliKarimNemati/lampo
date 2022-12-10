@@ -6,7 +6,7 @@
     </p>
     <div
       class="
-        d-flex
+        d-none d-md-flex
         flex-wrap
         mt-5 mt-md-0
         justify-content-center justify-md-content-start
@@ -20,6 +20,22 @@
       />
     </div>
 
+    <VueSlickCarousel
+      :arrows="false"
+      :dots="false"
+      :slidesToShow="2"
+      :autoplay="true"
+      :speed="2000"
+      class="col-12 ml-auto mr-auto d-md-none d-block"
+    >
+      <Card
+        v-for="product in products.slice(0, 8)"
+        :key="product.id"
+        :lamp="product"
+        class="col-11 mb-4"
+      />
+    </VueSlickCarousel>
+
     <div class="text-center">
       <button class="view-all rounded-pill p-2 pr-4 pl-4 mt-4 mb-2">
         View All Product
@@ -29,8 +45,13 @@
 </template>
 
 <script>
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+
 import { mapState } from "vuex";
 export default {
+  components: { VueSlickCarousel },
   computed: {
     ...mapState(["products"]),
   },
@@ -42,12 +63,12 @@ export default {
   border: 1.6px solid gold;
   background: #181818;
   color: #eee;
-  font-size: .9rem;
-  transition: .5s;
+  font-size: 0.9rem;
+  transition: 0.5s;
 }
 
-.view-all:hover{
-    background: gold;
-    color: #181818;
+.view-all:hover {
+  background: gold;
+  color: #181818;
 }
 </style>

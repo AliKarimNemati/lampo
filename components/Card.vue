@@ -63,7 +63,13 @@ export default {
     cursor: pointer;
 }
 .plus:hover{
-    background: #eee;
-    color: #ff5c01;
+  background: #eee;
+  color: #ff5c01;
+}
+
+@media(max-width: 536px){
+  .card-img{
+    height: 160px;
+  }
 }
 </style>
