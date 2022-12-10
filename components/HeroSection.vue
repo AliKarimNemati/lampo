@@ -86,6 +86,11 @@ export default {};
 .shop-btn {
   background: #ff5c01;
 }
+
+.shop-btn:hover{
+background: #ea5200;
+}
+
 .play-icon {
   border: 1.6px solid #fff;
   border-radius: 50%;
