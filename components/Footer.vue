@@ -11,16 +11,16 @@
       "
     >
       <div class="col-md-4 col-12">
-        <h3>Lampo</h3>
+        <nuxt-link to="\" class="h3 text-light text-decoration-none">Lampo</nuxt-link>
         <p class="text-secondary">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores dicta
           eveniet exercitationem quibusdam culpa. Saepe facere exercitationem
           vel totam pariatur?
         </p>
         <div class="mt-md-5 brand-info">
-          <div>5555-6787</div>
-          <div>Germany</div>
-          <div>lampo@gmail.com</div>
+          <div class="mt-2"><i class="bi bi-telephone pr-2"></i>5555-6787</div>
+          <div class="mt-2"><i class="bi bi-geo-alt pr-2"></i>Germany</div>
+          <div class="mt-2"><i class="bi bi-envelope pr-2"></i>lampo@gmail.com</div>
         </div>
       </div>
       <div class="d-flex col-md-3 col-12 mt-5 mt-md-0">
@@ -74,6 +74,10 @@ export default {};
 
 .brand-info {
   color: #eee;
+}
+
+.brand-info div i{
+  color: #ff5c01;
 }
 
 .copy-right {
