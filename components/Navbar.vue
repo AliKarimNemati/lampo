@@ -26,7 +26,7 @@
             placeholder="search"
           />
           <nuxt-link to="/cart" class="text-light m-0 pt-1 bi bi-bag-dash h3">
-            <b-badge variant="light" class="rounded-circle" :class="{'d-none': this.cart.length == 0}" >{{this.cart.length}}</b-badge>
+            <b-badge variant="light" class="rounded-circle cart-icon-count" :class="{'d-none': this.cart.length == 0}" >{{this.cart.length}}</b-badge>
           </nuxt-link>
         </div>
       </div>
@@ -142,5 +142,10 @@ export default {
   top: 16px;
   right: 10px;
   font-size: 17px;
+}
+
+.cart-icon-count {
+  background: #ff5c01;
+  color: #eee;
 }
 </style>

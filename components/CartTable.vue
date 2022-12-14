@@ -1,5 +1,5 @@
 <template>
-  <div class="p-md-5 p-4">
+  <div class="p-4">
     <div
       class="col-md-6 col-12 ml-auto mr-auto d-flex cart-item p-4 rounded mb-4"
       v-for="cartItem in cart"
@@ -16,21 +16,54 @@
         </p>
         <p class="h2 m-0"><span class="sign">$</span>{{ cartItem.price }}</p>
         <div class="count-item mt-3 mb-3 rounded d-flex">
-          <span class="mr-3 plus-item" @click="addCartItemCount(cartItem.id) ">+</span>
-          <p class="m-0 p-0">{{cartItem.count}}</p>
-          <span class="ml-3 minus-item" @click="() => {
-            
-            minCartItemCount(cartItem.id)
+          <span class="mr-3 plus-item" @click="addCartItemCount(cartItem.id)"
+            >+</span
+          >
+          <p class="m-0 p-0">{{ cartItem.count }}</p>
+          <span
+            class="ml-3 minus-item"
+            @click="
+              () => {
+                minCartItemCount(cartItem.id);
 
-            if(cartItem.count <= 0){
-              removeItems(cartItem.id);
-            }
-            }">-</span>
+                if (cartItem.count <= 0) {
+                  removeItems(cartItem.id);
+                }
+              }
+            "
+            >-</span
+          >
         </div>
       </div>
     </div>
 
-    <div class="h3 text-secondary text-center" :class="{'d-none': this.cart.lenght != 0, 'd-block': this.cart.length == 0 }">Cart is empty</div>
+    <div
+      class="h3 text-secondary text-center"
+      :class="{
+        'd-none': this.cart.lenght != 0,
+        'd-block': this.cart.length == 0,
+      }"
+    >
+      Cart is empty
+    </div>
+
+    <div class="text-center mt-5">
+      <nuxt-link
+        to="/"
+        class="
+          text-light
+          btn
+          shop-btn
+          rounded-pill
+          p-2
+          pl-4
+          pr-4
+          mr-3
+        "
+      >
+        Continue</nuxt-link
+      >
+    </div>
   </div>
 </template>
 
@@ -38,7 +71,6 @@
 import { mapState } from "vuex";
 import { mapMutations } from "vuex";
 export default {
-
   computed: {
     ...mapState(["cart"]),
   },
@@ -91,15 +123,16 @@ export default {
 
 .count-item {
   border: 1px #eee solid;
+  background: #343a40;
   padding: 8px;
   width: 80px;
-
 }
 
-.plus-item, .minus-item{
+.plus-item,
+.minus-item {
   cursor: pointer;
+  color: #ff5c01;
 }
-
 
 @media (max-width: 768px) {
   .cart-item-img {
@@ -116,6 +149,10 @@ export default {
 
   .delete-items {
     font-size: 16px !important;
+  }
+
+  .count-item p{
+    font-size: 16px;
   }
 }
 </style>
