@@ -81,7 +81,7 @@ export default {};
   height: 500px;
 }
 .hero-img img {
-  border-radius: 50% 50% 10% 10%;
+  border-radius: 230px 230px 30px 30px;
 }
 .shop-btn {
   background: #ff5c01;

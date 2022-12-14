@@ -176,7 +176,7 @@ export default {
   height: 500px;
 }
 .feature-img img {
-  border-radius: 50% 50% 10% 10%;
+  border-radius: 230px 230px 30px 30px;
 }
 .accordion {
   background: #181818;

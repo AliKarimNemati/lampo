@@ -6,6 +6,12 @@
         class="bi bi-list h1 text-light menu-icon d-lg-none d-block m-2"
         v-b-toggle.sidebar-backdrop
       ></i>
+      <nuxt-link
+        to="/cart"
+        class="text-light mb-4 mt-3 mr-4 ml-4 m-0 pt-1 bi bi-bag-dash h3 d-block d-md-none"
+      >
+            <b-badge variant="light" class="rounded-circle" :class="{'d-none': this.cart.length == 0}" >{{this.cart.length}}</b-badge>
+      </nuxt-link>
       <div class="mt-3 d-lg-flex justify-content-between col-12 d-none">
         <b-navbar-nav>
           <b-navbar-brand to="/#" class="navbar-brand">Lampo</b-navbar-brand>
@@ -19,10 +25,9 @@
             class="search-input mr-4 text-light rounded-pill"
             placeholder="search"
           />
-          <nuxt-link
-            to="/"
-            class="text-light m-0 pt-1 bi bi-bag-dash h4"
-          ></nuxt-link>
+          <nuxt-link to="/cart" class="text-light m-0 pt-1 bi bi-bag-dash h3">
+            <b-badge variant="light" class="rounded-circle" :class="{'d-none': this.cart.length == 0}" >{{this.cart.length}}</b-badge>
+          </nuxt-link>
         </div>
       </div>
     </b-navbar>
@@ -37,30 +42,26 @@
       backdrop
       shadow
     >
-      <div
-        class="d-flex justify-content-between "
-      >
-        <b-navbar-nav
-          class=" p-3 pt-4 nav"
-        >
+      <div class="d-flex justify-content-between">
+        <b-navbar-nav class="p-3 pt-4 nav">
           <div class="mt-2">
             <input
               type="search"
-              class="search-input mr-4 text-light rounded-pill ml-auto mr-auto"
+              class="search-input mr-4 text-light rounded-pill"
               placeholder="search"
             />
           </div>
-          <nuxt-link
-            to="/"
-            class="text-light m-0 pt-1 bi bi-bag-dash h4 text-center mt-2"
-          ></nuxt-link>
-          <nuxt-link to="/" class="text-light text-center mt-2" active
+
+          <nuxt-link to="/" class="text-light ml-4 mt-2" active
             >Product</nuxt-link
           >
-          <nuxt-link to="/" class="text-light text-center mt-2" active
+          <nuxt-link to="/" class="text-light ml-4 mt-2" active
+            >Product</nuxt-link
+          >
+          <nuxt-link to="/" class="text-light ml-4 mt-2" active
             >Features</nuxt-link
           >
-          <nuxt-link to="/" class="text-light text-center mt-2" active
+          <nuxt-link to="/" class="text-light ml-4 mt-2" active
             >Contact</nuxt-link
           >
         </b-navbar-nav>
@@ -70,18 +71,27 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "navbar",
   data() {
     return {
       openNav: true,
+      cartItems: 0
     };
+  },
+  computed: {
+    ...mapState(["cart"]),
   },
   methods: {
     handleOpenNav() {
       this.openNav = !this.openNav;
     },
   },
+
+  mounted(){
+  }
 };
 </script>
 
@@ -97,7 +107,7 @@ export default {
   border: none;
   display: flex;
   justify-content: center;
-} 
+}
 
 .search-input:focus {
   outline: gold solid 1px;
@@ -125,5 +135,12 @@ export default {
   width: 100%;
   top: 0;
   z-index: 150;
+}
+
+.badge {
+  position: relative;
+  top: 16px;
+  right: 10px;
+  font-size: 17px;
 }
 </style>

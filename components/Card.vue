@@ -7,14 +7,18 @@
     <p class="text-secondary m-0">Lorem, ipsum.</p>
     <div class="d-flex justify-content-between ">
     <p class="price m-0"><span class="sign">$</span>{{lamp.price}}</p>
-    <div class="plus rounded-circle">+</div>
+    <div class="plus rounded-circle" @click="() => {addItems(lamp.id); addCartItemCount(lamp.id)}">+</div>
     </div>
   </div>
 </template>
 
 <script>
+import {mapMutations} from "vuex";
 export default {
-    props:['lamp']
+  props:['lamp'],
+  methods: {
+    ...mapMutations(["addItems", "addCartItemCount"])
+  }
 };
 </script>
 
@@ -27,7 +31,7 @@ export default {
 }
 
 .card-img img{
-  border-radius:5%;
+  border-radius: 230px 230px 30px 30px;
   transition: .7s;
   z-index: -100;
 }
@@ -36,7 +40,7 @@ export default {
   transform: scale(1.04);
 }
 .card-product {
-  border-radius: 5%;
+  border-radius: 230px 230px 30px 30px;
   padding: 16px;
   padding-top: 14px;
   padding-right: 14px;
