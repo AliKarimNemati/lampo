@@ -47,7 +47,12 @@
       Cart is empty
     </div>
 
-    <div class="text-center mt-5">
+    <div class="text-center mt-5"
+          :class="{
+        'd-none': this.cart.length == 0,
+        'd-block': this.cart.length != 0,
+      }"
+    >
       <nuxt-link
         to="/"
         class="

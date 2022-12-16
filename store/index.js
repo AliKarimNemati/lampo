@@ -1,11 +1,12 @@
-export const state = () =>({
-    cart:[],
-    products:[
+export const state = () => ({
+    cart: [],
+    products: [
         {
             id: 1,
             name: 'silver chandelier',
             price: 30,
             img: "chandelier1.jpg",
+            type: "livingRoom",
             count: 0
         },
         {
@@ -13,6 +14,7 @@ export const state = () =>({
             name: 'beautiful lamp',
             price: 25,
             img: "lamp1.jpg",
+            type: "livingRoom",
             count: 0
         },
         {
@@ -20,6 +22,7 @@ export const state = () =>({
             name: 'black chandelier',
             price: 28,
             img: "chandelier2.jpg",
+            type: "livingRoom",
             count: 0
         },
         {
@@ -27,6 +30,7 @@ export const state = () =>({
             name: 'modern chandelier',
             price: 35,
             img: "chandelier3.jpg",
+            type: "kitchen",
             count: 0
         },
         {
@@ -34,6 +38,7 @@ export const state = () =>({
             name: 'simple lamp',
             price: 20,
             img: "lamp2.jpg",
+            type: "study",
             count: 0
         },
         {
@@ -41,6 +46,7 @@ export const state = () =>({
             name: 'simple lamp',
             price: 25,
             img: "lamp3.jpg",
+            type: "study",
             count: 0
         },
         {
@@ -48,6 +54,7 @@ export const state = () =>({
             name: 'silver chandelier',
             price: 28,
             img: "chandelier4.jpg",
+            type: "kitchen",
             count: 0
         },
         {
@@ -55,6 +62,7 @@ export const state = () =>({
             name: 'modern chandelier',
             price: 30,
             img: "chandelier5.jpg",
+            type: "kitchen",
             count: 0
         },
         {
@@ -62,6 +70,7 @@ export const state = () =>({
             name: 'modern lantern',
             price: 30,
             img: "lamp4.jpg",
+            type: "livingRoom",
             count: 0
         },
         {
@@ -69,6 +78,7 @@ export const state = () =>({
             name: 'orange lamp',
             price: 24,
             img: "lamp5.jpg",
+            type: "livingRoom",
             count: 0
         },
         {
@@ -76,6 +86,7 @@ export const state = () =>({
             name: 'modern chandelier',
             price: 30,
             img: "chandelier6.jpg",
+            type: "kitchen",
             count: 0
         },
         {
@@ -83,26 +94,32 @@ export const state = () =>({
             name: 'modern chandelier',
             price: 30,
             img: "lamp6.jpg",
+            type: "kitchen",
             count: 0
         },
     ]
 })
 
+export const getters = {
+    getProductById: (state) => (id) =>{
+        return state.products.find(item => item.id == id)
+    }
+}
+
 export const mutations = {
-    addItems(state, id){
+    addItems(state, id) {
         let items = state.products.find(product => product.id == id);
         state.cart.push(items);
-        // items.push("count": 0);
     },
-    removeItems(state, id){
+    removeItems(state, id) {
         state.cart = state.cart.filter(item => item.id != id);
     },
-    addCartItemCount(state, id){
+    addCartItemCount(state, id) {
         let items = state.products.find(product => product.id == id);
-        items.count ++;
+        items.count++;
     },
-    minCartItemCount(state, id){
+    minCartItemCount(state, id) {
         let items = state.products.find(product => product.id == id);
-        items.count --;
-    }
+        items.count--;
+    },
 }

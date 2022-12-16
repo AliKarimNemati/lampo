@@ -30,7 +30,6 @@ export default {};
 <style>
 .contact-us {
   border-radius: 20px;
-  /* height: 300px; */
 }
 
 .contact-us-img{

@@ -1,24 +1,38 @@
 <template>
-  <div class="mt-4 card-product bg-dark ">
+  <div class="mt-4 card-product bg-dark">
     <div class="card-img col-12">
-      <img :src="'img/'+lamp.img" class="w-100 h-100"/>
+      <img :src="'img/' + lamp.img" class="w-100 h-100" />
     </div>
-    <h3 class="mt-3 h4">{{lamp.name}}</h3>
+    <div class="mt-3">
+      <nuxt-link :to="'/products/' + lamp.id" class="text-light h4">{{
+        lamp.name
+      }}</nuxt-link>
+    </div>
     <p class="text-secondary m-0">Lorem, ipsum.</p>
-    <div class="d-flex justify-content-between ">
-    <p class="price m-0"><span class="sign">$</span>{{lamp.price}}</p>
-    <div class="plus rounded-circle" @click="() => {addItems(lamp.id); addCartItemCount(lamp.id)}">+</div>
+    <div class="d-flex justify-content-between">
+      <p class="price m-0"><span class="sign">$</span>{{ lamp.price }}</p>
+      <div
+        class="plus rounded-circle"
+        @click="
+          () => {
+            addItems(lamp.id);
+            addCartItemCount(lamp.id);
+          }
+        "
+      >
+        +
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import {mapMutations} from "vuex";
+import { mapMutations } from "vuex";
 export default {
-  props:['lamp'],
+  props: ["lamp"],
   methods: {
-    ...mapMutations(["addItems", "addCartItemCount"])
-  }
+    ...mapMutations(["addItems", "addCartItemCount"]),
+  },
 };
 </script>
 
@@ -30,13 +44,13 @@ export default {
   padding: 0;
 }
 
-.card-img img{
+.card-img img {
   border-radius: 230px 230px 30px 30px;
-  transition: .7s;
+  transition: 0.7s;
   z-index: -100;
 }
 
-.card-img img:hover{
+.card-img img:hover {
   transform: scale(1.04);
 }
 .card-product {
@@ -47,32 +61,32 @@ export default {
   padding-left: 14px;
   width: 250px;
 }
-.price{
-    font-size: 1.4rem;
+.price {
+  font-size: 1.4rem;
 }
-.sign{
-    color: #ff5c01;
-    font-size: 1.4rem;
+.sign {
+  color: #ff5c01;
+  font-size: 1.4rem;
 }
-.plus{
-    background: #ff5c01;
-    padding: 8px;
-    width: 35px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 12px;
-    transition: .5s;
-    cursor: pointer;
+.plus {
+  background: #ff5c01;
+  padding: 8px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 12px;
+  transition: 0.5s;
+  cursor: pointer;
 }
-.plus:hover{
+.plus:hover {
   background: #eee;
   color: #ff5c01;
 }
 
-@media(max-width: 536px){
-  .card-img{
+@media (max-width: 536px) {
+  .card-img {
     height: 160px;
   }
 }

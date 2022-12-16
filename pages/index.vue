@@ -9,8 +9,11 @@
 
 <script>
 
+import Card from "~/components/Card.vue";
+
 export default {
   name: "IndexPage",
+  components: {Card},
   // components: { VueSlickCarousel },
 };
 </script>

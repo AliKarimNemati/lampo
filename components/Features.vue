@@ -8,7 +8,7 @@
           natus praesentium,
         </p>
         <nuxt-link
-          to="/"
+          to="/products"
           class="text-light btn shop-btn rounded-pill p-2 pl-4 pr-4 mr-3"
         >
           Shopping Now</nuxt-link

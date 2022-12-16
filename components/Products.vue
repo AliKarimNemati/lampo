@@ -17,7 +17,6 @@
         :key="product.id"
         :lamp="product"
         class="ml-md-4 mr-md-4 mt-md-5"
-        @addToCart="handleCart"
       />
     </div>
 
@@ -37,10 +36,10 @@
       />
     </VueSlickCarousel>
 
-    <div class="text-center">
-      <button class="view-all rounded-pill p-2 pr-4 pl-4 mt-4 mb-2">
+    <div class="text-center mt-4">
+      <nuxt-link to="/products" class="view-all rounded-pill p-2 pr-4 pl-4 mb-2">
         View All Product
-      </button>
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -57,11 +56,6 @@ export default {
     ...mapState(["products"]),
   },
 
-  methods:{
-    handleCart(e) {
-      console.log(e);
-    }
-  }
 };
 </script>
 

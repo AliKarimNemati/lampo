@@ -8,9 +8,9 @@
       ></i>
       <nuxt-link
         to="/cart"
-        class="text-light mb-4 mt-3 mr-4 ml-4 m-0 pt-1 bi bi-bag-dash h3 d-block d-md-none"
+        class="text-light mb-4 mt-3 mr-4 ml-4 m-0 pt-1 bi bi-bag-dash h3 d-block d-md-none "
       >
-            <b-badge variant="light" class="rounded-circle" :class="{'d-none': this.cart.length == 0}" >{{this.cart.length}}</b-badge>
+            <b-badge variant="light" class="rounded-circle cart-icon-count " :class="{'d-none': this.cart.length == 0}" >{{this.cart.length}}</b-badge>
       </nuxt-link>
       <div class="mt-3 d-lg-flex justify-content-between col-12 d-none">
         <b-navbar-nav>
