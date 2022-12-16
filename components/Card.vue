@@ -4,7 +4,7 @@
       <img :src="'img/' + lamp.img" class="w-100 h-100" />
     </div>
     <div class="mt-3">
-      <nuxt-link :to="'/products/' + lamp.id" class="text-light h4">{{
+      <nuxt-link :to="'/products/' + lamp.id" class="text-light h4 text-decoration-none">{{
         lamp.name
       }}</nuxt-link>
     </div>

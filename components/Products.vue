@@ -1,5 +1,5 @@
 <template>
-  <div class="p-md-5 p-4" >
+  <div class="p-md-5 p-4" id="products">
     <h2 class="header-feature h1 text-center">Our Products</h2>
     <p class="text-secondary text-center">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, ex?
@@ -37,7 +37,7 @@
     </VueSlickCarousel>
 
     <div class="text-center mt-4">
-      <nuxt-link to="/products" class="view-all rounded-pill p-2 pr-4 pl-4 mb-2">
+      <nuxt-link to="/products" class="view-all rounded-pill p-2 pr-4 pl-4 mb-2 text-decoration-none">
         View All Product
       </nuxt-link>
     </div>
@@ -51,7 +51,7 @@ import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 import { mapState } from "vuex";
 export default {
-  components: { VueSlickCarousel },
+  components: {VueSlickCarousel},
   computed: {
     ...mapState(["products"]),
   },

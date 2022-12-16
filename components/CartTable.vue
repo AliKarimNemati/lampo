@@ -9,19 +9,19 @@
         <img :src="'img/' + cartItem.img" class="w-100 h-100 rounded" />
       </div>
       <div class="ml-4">
-        <h2>{{ cartItem.name }}</h2>
+        <nuxt-link :to="'products/' + cartItem.id" class="h2 text-light">{{ cartItem.name }}</nuxt-link>
         <p class="text-secondary col-8 p-0 d-md-block d-none">
           Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur
           adipisicing
         </p>
         <p class="h2 m-0"><span class="sign">$</span>{{ cartItem.price }}</p>
-        <div class="count-item mt-3 mb-3 rounded d-flex">
-          <span class="mr-3 plus-item" @click="addCartItemCount(cartItem.id)"
+        <div class="count-item mt-3 mb-3 rounded d-flex flex-row-reverse">
+          <span class="ml-3 plus-item" @click="addCartItemCount(cartItem.id)"
             >+</span
           >
           <p class="m-0 p-0">{{ cartItem.count }}</p>
           <span
-            class="ml-3 minus-item"
+            class="mr-3 minus-item"
             @click="
               () => {
                 minCartItemCount(cartItem.id);

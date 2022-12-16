@@ -1,5 +1,5 @@
 <template>
-  <div class="p-md-5 p-4">
+  <div class="p-md-5 p-4" id="features">
     <div class="d-flex flex-wrap">
       <div class="col-md-3 mt-5">
         <h2 class="header-feature h1">See more of our flash sales</h2>
@@ -16,20 +16,34 @@
       </div>
       <div
         class="
-          d-flex
+          d-none
+          d-md-flex
           flex-wrap
-          ml-md-4 ml-0
-          mt-5 mt-md-0
-          justify-content-center justify-md-content-start
         "
       >
         <Card
           v-for="product in products.slice(9, 12)"
           :key="product.id"
-          class="ml-md-3"
+          class="ml-3"
           :lamp="product"
         />
       </div>
+
+      <VueSlickCarousel
+        :arrows="false"
+        :dots="false"
+        :slidesToShow="2"
+        :autoplay="true"
+        :speed="2000"
+        class="col-12 ml-auto mr-auto d-md-none d-block mt-4"
+      >
+        <Card
+          v-for="product in products.slice(9, 12)"
+          :key="product.id"
+        class="col-11 mb-4"
+          :lamp="product"
+        />
+      </VueSlickCarousel>
     </div>
 
     <div class="mt-5 d-flex flex-wrap">
@@ -153,8 +167,14 @@
 </template>
 
 <script>
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+
 import { mapState } from "vuex";
 export default {
+  components: { VueSlickCarousel },
+
   data() {
     return {
       openAccordion1: true,
@@ -186,7 +206,7 @@ export default {
   border: none;
   text-align: left;
 }
-.accordion button p{
+.accordion button p {
   font-size: 1.1rem;
 }
 </style>

@@ -13,7 +13,7 @@
         </p>
         <div class="d-flex flex-wrap">
           <nuxt-link
-            to="/"
+            to="/products"
             class="
               bi bi-cart
               text-light

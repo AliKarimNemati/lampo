@@ -1,7 +1,7 @@
 <template>
-  <div class="row justify-content-center ml-auto mr-auto d-flex align-items-end p-md-5 p-4">
+  <div class="row justify-content-center ml-auto mr-auto d-flex align-items-end p-md-5 p-4" id="contact-us">
     <div class="contact-us col-md-6 col-10 bg-dark">
-      <div class="col-10 pt-5 pl-md-5">
+      <div class="col-12 col-md-10 pt-5 pl-md-5">
         <h2 class="header-feature h1">Long lasting and always bright</h2>
         <p class="text-secondary">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem, hic
