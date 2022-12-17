@@ -4,9 +4,11 @@
       <img :src="'img/' + lamp.img" class="w-100 h-100" />
     </div>
     <div class="mt-3">
-      <nuxt-link :to="'/products/' + lamp.id" class="text-light h4 text-decoration-none">{{
-        lamp.name
-      }}</nuxt-link>
+      <nuxt-link
+        :to="'/products/' + lamp.id"
+        class="text-light product-name text-decoration-none"
+        >{{ lamp.name }}</nuxt-link
+      >
     </div>
     <p class="text-secondary m-0">Lorem, ipsum.</p>
     <div class="d-flex justify-content-between">
@@ -15,7 +17,9 @@
         class="plus rounded-circle"
         @click="
           () => {
-            addItems(lamp.id);
+            if (lamp.count == 0) {
+              addItems(lamp.id);
+            }
             addCartItemCount(lamp.id);
           }
         "
@@ -42,6 +46,10 @@ export default {
   max-width: 100%;
   margin: 0 auto;
   padding: 0;
+}
+
+.product-name{
+  font-size: 24px;
 }
 
 .card-img img {
@@ -88,6 +96,10 @@ export default {
 @media (max-width: 536px) {
   .card-img {
     height: 160px;
+  }
+
+  .product-name{
+    font-size: 15px;
   }
 }
 </style>

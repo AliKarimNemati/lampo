@@ -9,7 +9,9 @@
         <img :src="'img/' + cartItem.img" class="w-100 h-100 rounded" />
       </div>
       <div class="ml-4">
-        <nuxt-link :to="'products/' + cartItem.id" class="h2 text-light">{{ cartItem.name }}</nuxt-link>
+        <nuxt-link :to="'products/' + cartItem.id" class="h2 text-light">{{
+          cartItem.name
+        }}</nuxt-link>
         <p class="text-secondary col-8 p-0 d-md-block d-none">
           Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur
           adipisicing
@@ -45,29 +47,28 @@
       }"
     >
       Cart is empty
+      <div class="text-center mt-5">
+        <nuxt-link
+          class="text-light btn shop-btn rounded-pill p-2 pl-4 pr-4 mr-3"
+          to="/products"
+        >
+          Buy now
+        </nuxt-link>
+      </div>
     </div>
-
-    <div class="text-center mt-5"
-          :class="{
+    <div
+      class="text-center mt-5"
+      :class="{
         'd-none': this.cart.length == 0,
         'd-block': this.cart.length != 0,
       }"
     >
       <nuxt-link
-        to="/"
-        class="
-          text-light
-          btn
-          shop-btn
-          rounded-pill
-          p-2
-          pl-4
-          pr-4
-          mr-3
-        "
+        class="text-light btn shop-btn rounded-pill p-2 pl-4 pr-4 mr-3"
+        to="/check-out"
       >
-        Continue</nuxt-link
-      >
+        Continue
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -82,10 +83,6 @@ export default {
 
   methods: {
     ...mapMutations(["removeItems", "addCartItemCount", "minCartItemCount"]),
-  },
-
-  mounted() {
-    console.log(this.cart.length);
   },
 };
 </script>
@@ -156,7 +153,7 @@ export default {
     font-size: 16px !important;
   }
 
-  .count-item p{
+  .count-item p {
     font-size: 16px;
   }
 }

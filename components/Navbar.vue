@@ -25,7 +25,7 @@
           variant="light"
           class="rounded-circle cart-icon-count"
           :class="{ 'd-none': this.cart.length == 0 }"
-          >{{ this.cart.length }}</b-badge
+          >{{ this.$store.getters.getItemsCount }}</b-badge
         >
       </nuxt-link>
       <div class="mt-3 d-lg-flex justify-content-between col-12 d-none">
@@ -46,7 +46,7 @@
               variant="light"
               class="rounded-circle cart-icon-count"
               :class="{ 'd-none': this.cart.length == 0 }"
-              >{{ this.cart.length }}</b-badge
+              >{{ this.$store.getters.getItemsCount }}</b-badge
             >
           </nuxt-link>
         </div>

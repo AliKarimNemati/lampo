@@ -97,12 +97,36 @@ export const state = () => ({
             type: "kitchen",
             count: 0
         },
-    ]
+    ],
+    total: {
+        total: 0,
+        count: 0
+    }
 })
 
 export const getters = {
-    getProductById: (state) => (id) =>{
+    getProductById: (state) => (id) => {
         return state.products.find(item => item.id == id)
+    },
+
+    getTotal(state) {
+        let total = 0
+
+        state.cart.forEach(product => {
+            total += product.count * product.price;
+        });
+
+        return total;
+    },
+
+    getItemsCount(state) {
+        let count = 0
+
+        state.cart.forEach(product => {
+            count += product.count;
+        });
+
+        return count;
     }
 }
 
@@ -122,4 +146,8 @@ export const mutations = {
         let items = state.products.find(product => product.id == id);
         items.count--;
     },
+
+    emptyCart(state){
+        state.cart = [];
+    }
 }
