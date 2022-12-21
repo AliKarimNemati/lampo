@@ -36,7 +36,7 @@
       />
     </VueSlickCarousel>
 
-    <div class="text-center mt-4">
+    <div class="text-center mt-5">
       <nuxt-link to="/products" class="view-all rounded-pill p-2 pr-4 pl-4 mb-2 text-decoration-none">
         View All Product
       </nuxt-link>

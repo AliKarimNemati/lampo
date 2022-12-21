@@ -6,12 +6,12 @@
       </div>
 
       <div class="col-md-5 col-12 pr-md-5 pl-md-5 ml-md-5 mt-md-3">
-        <h1 class="header-txt">Light Up Your Home</h1>
-        <p class="text-secondary">
+        <h1 class="header-txt hero-txt-hidden">Light Up Your Home</h1>
+        <p class="text-secondary hero-txt-para-hidden">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eos eum
           doloremque in iusto corrupti deleniti dolores reiciendis?
         </p>
-        <div class="d-flex flex-wrap">
+        <div class="d-flex flex-wrap hero-txt-para-hidden">
           <nuxt-link
             to="/products"
             class="
@@ -36,27 +36,19 @@
         <div class="mt-5 d-flex flex-wrap">
           <div class="col-md-3 col-6">
             <h2>27<span class="k">K+</span></h2>
-            <p class="text-secondary">
-              Lorem ipsum, dolor
-            </p>
+            <p class="text-secondary">Lorem ipsum, dolor</p>
           </div>
           <div class="col-md-3 col-6">
             <h2>34<span class="k">K+</span></h2>
-            <p class="text-secondary">
-              Lorem ipsum, dolor
-            </p>
+            <p class="text-secondary">Lorem ipsum, dolor</p>
           </div>
           <div class="col-md-3 col-6">
             <h2>165<span class="k">K+</span></h2>
-            <p class="text-secondary">
-              Lorem ipsum, dolor
-            </p>
+            <p class="text-secondary">Lorem ipsum, dolor</p>
           </div>
           <div class="col-md-3 col-6">
             <h2>50<span class="k">+</span></h2>
-            <p class="text-secondary">
-              Lorem ipsum, dolor
-            </p>
+            <p class="text-secondary">Lorem ipsum, dolor</p>
           </div>
         </div>
       </div>
@@ -65,7 +57,29 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    const headerObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        console.log(entry);
+
+        if (entry.isIntersecting) {
+          entry.target.classList.add("hero-txt-show");
+        } else {
+          entry.target.classList.remove("hero-txt-show");
+        }
+      });
+    });
+
+
+    const hiddenHeader = document.querySelectorAll(".hero-txt-hidden");
+    hiddenHeader.forEach((el) => headerObserver.observe(el));
+
+
+
+
+  },
+};
 </script>
 
 <style>
@@ -75,8 +89,30 @@ export default {};
 }
 .header-txt {
   font-family: syne;
-  font-size: 5rem;
 }
+
+.hero-txt-hidden {
+  opacity: 0;
+  font-size: 5rem;
+  transition: 1s;
+}
+
+.hero-txt-show {
+  opacity: 1;
+  font-size: 5.3rem;
+}
+
+.hero-txt-para-hidden {
+  opacity: 0;
+  font-size: .9rem;
+  transition: 1s;
+}
+
+.hero-txt-para-show {
+  font-size: 1rem;
+  opacity: 1;
+}
+
 .hero-img {
   height: 500px;
 }
@@ -87,8 +123,8 @@ export default {};
   background: #ff5c01;
 }
 
-.shop-btn:hover{
-background: #ea5200;
+.shop-btn:hover {
+  background: #ea5200;
 }
 
 .play-icon {

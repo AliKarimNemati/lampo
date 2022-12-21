@@ -29,7 +29,7 @@
         </thead>
         <tbody>
           <tr v-for="(cartItem, i) in cart" :key="cartItem.id">
-            <th scope="row">{{ i }}</th>
+            <th scope="row">{{ i + 1 }}</th>
             <td>{{ cartItem.name }}</td>
             <td>{{ cartItem.price }}</td>
             <td>{{ cartItem.count }}</td>

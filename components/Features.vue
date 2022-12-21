@@ -1,7 +1,7 @@
 <template>
   <div class="p-md-5 p-4" id="features">
     <div class="d-flex flex-wrap">
-      <div class="col-md-3 mt-5">
+      <div class="col-md-3 mt-5 hero-txt-para-hidden">
         <h2 class="header-feature h1">See more of our flash sales</h2>
         <p class="text-secondary">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore odit
@@ -50,7 +50,7 @@
       <div class="feature-img col-md-4 col-12 d-none d-md-block">
         <img src="img/lamp1.jpg" class="w-100 h-100" />
       </div>
-      <div class="col-md-5 col-12 mt-5 ml-md-5 ml-0">
+      <div class="col-md-5 col-12 mt-5 ml-md-5 ml-0 hero-txt-para-hidden">
         <h2 class="header-feature h1 col-md-8 col-12">
           Why should you choose us as your partner
         </h2>

@@ -5,32 +5,23 @@
     </div>
     <div class="p-md-5 p-4">
       <h2 class="mt-3 text-center h1">All Products</h2>
-
-      <div class="text-center mt-4">
-        <b-form-select
-          v-model="select"
-          :options="options"
-          class="product-type col-md-3 col-8 text-center"
-        ></b-form-select>
+      <div class="mt-5 text-center">
+        <select class="col-3">
+          <option value="all">All Lamp</option>
+          <option value="study">Study Lamp</option>
+          <option value="kitchen">Kitchen Lamp</option>
+          <option value="livingRoom">Living Room Lamp</option>
+        </select>
       </div>
+    </div>
 
-      <div class="d-flex flex-wrap justify-content-center">
-        <Card
-          v-for="product in products"
-          :key="product.id"
-          :lamp="product"
-          class="
-            ml-md-4
-            mr-md-4
-            mt-md-5
-            col-md-2 col-5
-            mr-md-0
-            ml-md-0
-            mr-2
-            ml-2
-          "
-        />
-      </div>
+    <div class="d-flex flex-wrap justify-content-center">
+      <Card
+        v-for="product in products"
+        :key="product.id"
+        :lamp="product"
+        class="ml-md-4 mr-md-4 mt-md-4 col-md-2 col-5 mr-md-0 ml-md-0 mr-2 ml-2"
+      />
     </div>
   </div>
 </template>
@@ -73,6 +64,6 @@ select {
 
 .banner {
   height: 200px;
-  filter: brightness(.8);
+  filter: brightness(0.8);
 }
 </style>
