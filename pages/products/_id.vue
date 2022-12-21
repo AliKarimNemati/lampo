@@ -7,7 +7,7 @@
         <img :src="'../img/' + lamp.img" class="w-100 h-100 rounded-lg" />
       </div>
       <div class="col-md-8 col-11 align-self-center mt-md-0 mt-5">
-        <h2 class="h1">{{ lamp.name }}</h2>
+        <h2 class="h1 header-feature">{{ lamp.name }}</h2>
         <p class="text-secondary col-md-8 col-12 p-0">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eos eum
           doloremque in iusto corrupti deleniti dolores reiciendis?Lorem ipsum

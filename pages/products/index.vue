@@ -6,7 +6,7 @@
 
     <div class="p-md-5 p-4"> 
       <div class="p-md-5 p-4">
-        <h2 class="text-center h1">All Products</h2>
+        <h2 class="text-center header-feature h1">All Products</h2>
         <div class="mt-5 text-center">
           <select class="col-md-3 col-10">
             <option value="all">All Lamp</option>

@@ -10,7 +10,7 @@
     >
       You buy {{ count }} items successfully.
     </b-alert>
-    <h1 class="mt-5 text-center mb-5">Check Out</h1>
+    <h1 class="mt-5 text-center mb-5 header-feature">Check Out</h1>
     <div
       :class="{
         'd-none': this.cart.length == 0,
@@ -31,7 +31,7 @@
           <tr v-for="(cartItem, i) in cart" :key="cartItem.id">
             <th scope="row">{{ i + 1 }}</th>
             <td>{{ cartItem.name }}</td>
-            <td>{{ cartItem.price }}</td>
+            <td>${{ cartItem.price }}</td>
             <td>{{ cartItem.count }}</td>
             <td>{{ cartItem.count * cartItem.price }}</td>
           </tr>

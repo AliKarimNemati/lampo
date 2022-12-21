@@ -10,8 +10,8 @@
         justify-content-md-between justify-content-center
       "
     >
-      <div class="col-md-4 col-12">
-        <nuxt-link to="/" class="h3 text-light text-decoration-none">Lampo</nuxt-link>
+      <div class="col-md-4 col-12 ">
+        <nuxt-link to="/" class="h3 text-light text-decoration-none header-feature">Lampo</nuxt-link>
         <p class="text-secondary">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores dicta
           eveniet exercitationem quibusdam culpa. Saepe facere exercitationem
@@ -23,7 +23,7 @@
           <div class="mt-2"><i class="bi bi-envelope pr-2"></i>lampo@gmail.com</div>
         </div>
       </div>
-      <div class="d-flex col-md-3 col-12 mt-5 mt-md-0">
+      <div class="d-flex col-md-3 col-12 mt-5 mt-md-0 header-feature">
         <div class="d-flex flex-column mr-5">
           <h5 class="footer-link-head">Menu</h5>
           <nuxt-link to="/#products" class="footer-link text-decoration-none">Product</nuxt-link>
@@ -32,19 +32,13 @@
         </div>
         <div class="d-flex flex-column">
           <h5 class="footer-link-head">Product</h5>
-          <nuxt-link to="/" class="footer-link text-decoration-none">Study Lamp</nuxt-link>
-          <nuxt-link to="/" class="footer-link text-decoration-none">Living Room Lamp</nuxt-link>
-          <nuxt-link to="/" class="footer-link text-decoration-none">kitchen Lamp</nuxt-link>
-        </div>
-        <div>
-          <h5 class="footer-link-head"></h5>
-        </div>
-        <div>
-          <h5 class="footer-link-head"></h5>
+          <nuxt-link to="/products" class="footer-link text-decoration-none">Study Lamp</nuxt-link>
+          <nuxt-link to="/products" class="footer-link text-decoration-none">Living Room Lamp</nuxt-link>
+          <nuxt-link to="/products" class="footer-link text-decoration-none">kitchen Lamp</nuxt-link>
         </div>
       </div>
     </div>
-    <div class="text-secondary copy-right ml-md-5 mr-md-5 m-4 mt-4 pt-4">
+    <div class="text-secondary copy-right ml-md-5 mr-md-5 m-4 mt-4 pt-4 header-feature">
       <p class="text-center">Lampo - 2022</p>
     </div>
   </div>

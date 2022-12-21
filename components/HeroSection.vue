@@ -71,13 +71,8 @@ export default {
       });
     });
 
-
     const hiddenHeader = document.querySelectorAll(".hero-txt-hidden");
     hiddenHeader.forEach((el) => headerObserver.observe(el));
-
-
-
-
   },
 };
 </script>
@@ -104,7 +99,7 @@ export default {
 
 .hero-txt-para-hidden {
   opacity: 0;
-  font-size: .9rem;
+  font-size: 0.9rem;
   transition: 1s;
 }
 
@@ -150,5 +145,18 @@ export default {
 .k {
   color: #ff5c01;
   font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .hero-txt-hidden {
+    opacity: 0;
+    font-size: 4rem;
+    transition: 1s;
+  }
+
+  .hero-txt-show {
+    opacity: 1;
+    font-size: 4.2rem;
+  }
 }
 </style>

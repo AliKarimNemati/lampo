@@ -28,7 +28,7 @@
           >{{ this.$store.getters.getItemsCount }}</b-badge
         >
       </nuxt-link>
-      <div class="mt-3 d-lg-flex justify-content-between col-12 d-none">
+      <div class="mt-3 d-lg-flex justify-content-between col-12 d-none header-feature">
         <b-navbar-nav>
           <b-navbar-brand to="/" class="navbar-brand">Lampo</b-navbar-brand>
           <b-nav-item to="/#products" active>Product</b-nav-item>
@@ -63,7 +63,7 @@
       backdrop
       shadow
     >
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between header-feature">
         <b-navbar-nav class="p-3 pt-4 nav">
           <div class="mt-2">
             <input

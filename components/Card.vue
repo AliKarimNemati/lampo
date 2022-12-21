@@ -6,7 +6,7 @@
     <div class="mt-3">
       <nuxt-link
         :to="'/products/' + lamp.id"
-        class="text-light product-name text-decoration-none"
+        class="text-light product-name text-decoration-none header-feature"
         >{{ lamp.name }}</nuxt-link
       >
     </div>
