@@ -38,6 +38,9 @@
         </tbody>
       </table>
       <h3 class="text-center">Total: ${{ total }}</h3>
+
+      <Form v-if="cart.length != 0" />
+
       <div class="text-center mt-5">
         <button
           class="text-light btn shop-btn rounded-pill p-2 pl-4 pr-4 mr-3"
