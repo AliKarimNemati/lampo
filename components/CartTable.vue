@@ -18,12 +18,13 @@
         </p>
         <p class="h2 m-0"><span class="sign">$</span>{{ cartItem.price }}</p>
         <div class="count-item mt-3 mb-3 rounded d-flex flex-row-reverse">
-          <span class="ml-3 plus-item" @click="addCartItemCount(cartItem.id)"
-            >+</span
+          <span class="ml-3 plus-item bi bi-plus" @click="addCartItemCount(cartItem.id)"
+            ></span
           >
           <p class="m-0 p-0">{{ cartItem.count }}</p>
           <span
-            class="mr-3 minus-item"
+            class="mr-3 minus-item bi"
+            :class="{'bi-dash': cartItem.count > 1, 'bi-trash3' : cartItem.count <= 1}"
             @click="
               () => {
                 minCartItemCount(cartItem.id);
@@ -33,7 +34,7 @@
                 }
               }
             "
-            >-</span
+            ></span
           >
         </div>
       </div>
@@ -127,7 +128,7 @@ export default {
   border: 1px #eee solid;
   background: #343a40;
   padding: 8px;
-  width: 80px;
+  width: 90px;
 }
 
 .plus-item,

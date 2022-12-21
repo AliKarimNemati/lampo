@@ -22,12 +22,16 @@
           class="count-item mt-3 mb-3 rounded d-flex flex-row-reverse"
           v-if="lamp.count > 0"
         >
-          <span class="ml-3 plus-item" @click="addCartItemCount(lamp.id)"
-            >+</span
+          <span class="ml-3 plus-item bi bi-plus" @click="addCartItemCount(lamp.id)"
+            ></span
           >
           <p class="m-0 p-0">{{ lamp.count }}</p>
           <span
-            class="mr-3 minus-item"
+            class="mr-3 minus-item bi"
+            :class="{
+              'bi-dash': lamp.count > 1,
+              'bi-trash3': lamp.count <= 1,
+            }"
             @click="
               () => {
                 minCartItemCount(lamp.id);
@@ -37,8 +41,7 @@
                 }
               }
             "
-            >-</span
-          >
+          ></span>
         </div>
 
         <div
@@ -108,8 +111,8 @@ body {
   background: #ff5c01;
 }
 
-@media(max-width: 768px) {
-  .product-img{
+@media (max-width: 768px) {
+  .product-img {
     height: 300px;
   }
 }
