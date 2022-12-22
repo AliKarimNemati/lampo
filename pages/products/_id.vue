@@ -22,9 +22,10 @@
           class="count-item mt-3 mb-3 rounded d-flex flex-row-reverse"
           v-if="lamp.count > 0"
         >
-          <span class="ml-3 plus-item bi bi-plus" @click="addCartItemCount(lamp.id)"
-            ></span
-          >
+          <span
+            class="ml-3 plus-item bi bi-plus"
+            @click="addCartItemCount(lamp.id)"
+          ></span>
           <p class="m-0 p-0">{{ lamp.count }}</p>
           <span
             class="mr-3 minus-item bi"
@@ -89,6 +90,19 @@ export default {
       "minCartItemCount",
       "addItems",
     ]),
+  },
+
+  head() {
+    return {
+      title: this.lamp.name,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Lampo is the the best website for buying modern lamp",
+        },
+      ],
+    };
   },
 };
 </script>

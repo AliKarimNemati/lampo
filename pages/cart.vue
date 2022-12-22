@@ -7,13 +7,24 @@
 
 <script>
 export default {
-
-}
+  head() {
+    return {
+      title: 'Cart',
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Lampo is the the best website for buying modern lamp",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style>
-    body{
-        background:#181818;
-        color: white;
-    }
+body {
+  background: #181818;
+  color: white;
+}
 </style>

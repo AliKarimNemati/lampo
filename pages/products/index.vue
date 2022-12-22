@@ -1,10 +1,10 @@
 <template>
   <div class="">
-    <div class=" col-12 banner mt-5 pt-4 p-0">
+    <div class="col-12 banner mt-5 pt-4 p-0">
       <img src="img/banner.jpg" class="rounded w-100 h-100" />
     </div>
 
-    <div class="p-md-5 p-4"> 
+    <div class="p-md-5 p-4">
       <div class="p-md-5 p-4">
         <h2 class="text-center header-feature h1">All Products</h2>
         <div class="mt-5 text-center">
@@ -57,6 +57,19 @@ export default {
   computed: {
     ...mapState(["products"]),
   },
+
+  head() {
+    return {
+      title: "Products",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Lampo is the the best website for buying modern lamp",
+        },
+      ],
+    };
+  },
 };
 </script>
 
@@ -79,8 +92,8 @@ select {
   filter: brightness(0.3);
 }
 
-@media(max-width: 767px) {
-  .banner{
+@media (max-width: 767px) {
+  .banner {
     height: 200px;
   }
 }

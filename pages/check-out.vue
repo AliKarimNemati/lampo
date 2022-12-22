@@ -104,6 +104,19 @@ export default {
       this.dismissCountDown = this.dismissSecs;
     },
   },
+
+  head() {
+    return {
+      title: 'Check out',
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Lampo is the the best website for buying modern lamp",
+        },
+      ],
+    };
+  },
 };
 </script>
 
