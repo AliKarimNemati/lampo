@@ -42,18 +42,6 @@
 import { mapState } from "vuex";
 
 export default {
-  data() {
-    return {
-      select: "all",
-      options: [
-        { value: "all", text: "All Lamp" },
-        { value: "study", text: "Study Lamp" },
-        { value: "kitchen", text: "Kitchen Lamp" },
-        { value: "livingRoom", text: "Living Room Lamp" },
-      ],
-    };
-  },
-
   computed: {
     ...mapState(["products"]),
   },

@@ -61,8 +61,6 @@ export default {
   mounted() {
     const headerObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        console.log(entry);
-
         if (entry.isIntersecting) {
           entry.target.classList.add("hero-txt-show");
         } else {

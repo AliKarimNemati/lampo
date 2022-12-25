@@ -15,8 +15,10 @@
       <p class="price m-0"><span class="sign">$</span>{{ lamp.price }}</p>
       <div
         class="plus rounded-circle"
+        v-if="lamp.count == 0"
         @click="
           () => {
+            showAlert();
             if (lamp.count == 0) {
               addItems(lamp.id);
             }
@@ -26,7 +28,58 @@
       >
         +
       </div>
+
+       <div
+          class="count-item  rounded d-flex flex-row-reverse"
+          v-if="lamp.count > 0"
+        >
+          <span
+            class="ml-3 plus-item bi bi-plus"
+            @click="addCartItemCount(lamp.id)"
+          ></span>
+          <p class="m-0 p-0">{{ lamp.count }}</p>
+          <span
+            class="mr-3 minus-item bi"
+            :class="{
+              'bi-dash': lamp.count > 1,
+              'bi-trash3': lamp.count <= 1,
+            }"
+            @click="
+              () => {
+                minCartItemCount(lamp.id);
+
+                if (lamp.count <= 0) {
+                  removeItems(lamp.id);
+                }
+              }
+            "
+          ></span>
+        </div>
+
     </div>
+
+       
+    <!-- Alert -->
+
+    <div class="alert">
+      <b-alert
+        :show="dismissCountDown"
+        dismissible
+        variant="success"
+        @dismissed="dismissCountDown = 0"
+        @dismiss-count-down="countDownChanged"
+      >
+        <p>added to cart successfully</p>
+        <b-progress
+          variant="success"
+          :max="dismissSecs"
+          :value="dismissCountDown"
+          height="4px"
+        ></b-progress>
+      </b-alert>
+    </div>
+
+
   </div>
 </template>
 
@@ -34,8 +87,21 @@
 import { mapMutations } from "vuex";
 export default {
   props: ["lamp"],
+  data() {
+    return {
+      dismissSecs: 3,
+      dismissCountDown: 0,
+      showDismissibleAlert: false,
+    };
+  },
   methods: {
-    ...mapMutations(["addItems", "addCartItemCount"]),
+    ...mapMutations(["addItems", "addCartItemCount","minCartItemCount","removeItems"]),
+    countDownChanged(dismissCountDown) {
+      this.dismissCountDown = dismissCountDown;
+    },
+    showAlert() {
+      this.dismissCountDown = this.dismissSecs;
+    },
   },
 };
 </script>
@@ -48,7 +114,7 @@ export default {
   padding: 0;
 }
 
-.product-name{
+.product-name {
   font-size: 24px;
 }
 
@@ -93,12 +159,19 @@ export default {
   color: #ff5c01;
 }
 
+.alert {
+  position: fixed;
+  top: 70px;
+  left: 20px;
+  z-index: 100;
+}
+
 @media (max-width: 536px) {
   .card-img {
     height: 160px;
   }
 
-  .product-name{
+  .product-name {
     font-size: 15px;
   }
 }

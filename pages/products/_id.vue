@@ -61,6 +61,7 @@
           v-if="lamp.count <= 0"
           @click="
             () => {
+              showAlert();
               addItems(lamp.id);
               addCartItemCount(lamp.id);
             }
@@ -69,6 +70,25 @@
           Buy
         </div>
       </div>
+    </div>
+
+    <!-- Alert -->
+    <div class="alert">
+      <b-alert
+        :show="dismissCountDown"
+        dismissible
+        variant="success"
+        @dismissed="dismissCountDown = 0"
+        @dismiss-count-down="countDownChanged"
+      >
+        <p>added to cart successfully</p>
+        <b-progress
+          variant="success"
+          :max="dismissSecs"
+          :value="dismissCountDown"
+          height="4px"
+        ></b-progress>
+      </b-alert>
     </div>
   </div>
 </template>
@@ -80,6 +100,9 @@ export default {
   data() {
     return {
       lamp: this.$store.getters.getProductById(this.$route.params.id),
+      dismissSecs: 3,
+      dismissCountDown: 0,
+      showDismissibleAlert: false,
     };
   },
 
@@ -90,6 +113,13 @@ export default {
       "minCartItemCount",
       "addItems",
     ]),
+
+    countDownChanged(dismissCountDown) {
+      this.dismissCountDown = dismissCountDown;
+    },
+    showAlert() {
+      this.dismissCountDown = this.dismissSecs;
+    },
   },
 
   head() {
