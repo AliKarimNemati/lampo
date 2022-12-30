@@ -6,29 +6,37 @@
         class="bi bi-list h1 text-light menu-icon d-lg-none d-block m-2"
         v-b-toggle.sidebar-backdrop
       ></i>
-      <nuxt-link
-        to="/cart"
+      <div class="d-block d-md-none">
+        <nuxt-link to="signin" class="text-light text-decoration-none mr-2"
+          >Sign in</nuxt-link
+        >
+        <nuxt-link
+          to="signup"
+          class="text-light text-decoration-none border rounded-lg p-1 px-2"
+          >Sign up</nuxt-link
+        >
+        <nuxt-link
+          to="/cart"
+          class="text-light mb-4 mt-3 mr-4 ml-4 m-0 pt-1 bi bi-bag-dash h3"
+        >
+          <b-badge
+            variant="light"
+            class="rounded-circle cart-icon-count"
+            :class="{ 'd-none': this.cart.length == 0 }"
+            >{{ this.$store.getters.getItemsCount }}</b-badge
+          >
+        </nuxt-link>
+      </div>
+      <div
         class="
-          text-light
-          mb-4
           mt-3
-          mr-4
-          ml-4
-          m-0
-          pt-1
-          bi bi-bag-dash
-          h3
-          d-block d-md-none
+          d-lg-flex
+          justify-content-between
+          col-12
+          d-none
+          header-feature
         "
       >
-        <b-badge
-          variant="light"
-          class="rounded-circle cart-icon-count"
-          :class="{ 'd-none': this.cart.length == 0 }"
-          >{{ this.$store.getters.getItemsCount }}</b-badge
-        >
-      </nuxt-link>
-      <div class="mt-3 d-lg-flex justify-content-between col-12 d-none header-feature">
         <b-navbar-nav>
           <b-navbar-brand to="/" class="navbar-brand">Lampo</b-navbar-brand>
           <b-nav-item to="/#products" active>Product</b-nav-item>
@@ -41,6 +49,14 @@
             class="search-input mr-4 text-light rounded-pill"
             placeholder="search"
           />
+          <nuxt-link to="signin" class="text-light text-decoration-none mr-3 signup-btn align-self-center"
+            >Sign in</nuxt-link
+          >
+          <nuxt-link
+            to="signup"
+            class="text-light text-decoration-none border rounded-lg p-1 px-2 mr-3 signup-btn align-self-center"
+            >Sign up</nuxt-link
+          >
           <nuxt-link to="/cart" class="text-light m-0 pt-1 bi bi-bag-dash h3">
             <b-badge
               variant="light"
@@ -72,16 +88,28 @@
               placeholder="search"
             />
           </div>
-          <nuxt-link to="/" class="text-light ml-4 mt-3 text-decoration-none" active
+          <nuxt-link
+            to="/"
+            class="text-light ml-4 mt-3 text-decoration-none"
+            active
             >Home</nuxt-link
           >
-          <nuxt-link to="/#products" class="text-light ml-4 mt-3 text-decoration-none" active
+          <nuxt-link
+            to="/#products"
+            class="text-light ml-4 mt-3 text-decoration-none"
+            active
             >Product</nuxt-link
           >
-          <nuxt-link to="/#features" class="text-light ml-4 mt-3 text-decoration-none" active
+          <nuxt-link
+            to="/#features"
+            class="text-light ml-4 mt-3 text-decoration-none"
+            active
             >Features</nuxt-link
           >
-          <nuxt-link to="/#contact-us" class="text-light ml-4 mt-3 text-decoration-none" active
+          <nuxt-link
+            to="/#contact-us"
+            class="text-light ml-4 mt-3 text-decoration-none"
+            active
             >Contact</nuxt-link
           >
         </b-navbar-nav>
@@ -164,4 +192,7 @@ export default {
   color: #eee;
 }
 
+.signup-btn{
+  font-family: sans-serif;
+}
 </style>
