@@ -56,7 +56,7 @@
         </div>
       </b-form>
       <div class="d-flex flex-column align-items-center mt-4 links">
-        <nuxt-link to="#" class="text-light text-decoration-none"
+        <nuxt-link to="/forgot-password" class="text-light text-decoration-none"
           >Forgot password ?</nuxt-link
         >
         <nuxt-link to="/signup" class="text-light text-decoration-none mt-2"
