@@ -7,7 +7,6 @@
       </p>
 
       <b-form @submit.stop.prevent class="inputs">
-
         <!-- user name -->
         <div>
           <b-form-input
@@ -69,14 +68,7 @@
           type="button"
           value="Login"
           class="rounded-pill d-flex mt-3 text-light p-2 pr-4 pl-4"
-          @click="
-            () => {
-              submited = true;
-              if (!userNameErrors && !passwordErrors){
-                this.$router.push('/')
-              }
-            }
-          "
+          @click="handleSignin"
         />
       </div>
 
@@ -128,9 +120,18 @@ export default {
     },
   },
 
-    head() {
+  methods: {
+    handleSignin() {
+      this.submited = true;
+      if (!this.userNameErrors && !this.passwordErrors) {
+        this.$router.push("/");
+      }
+    },
+  },
+
+  head() {
     return {
-      title: 'Sign in',
+      title: "Sign in",
       meta: [
         {
           hid: "description",
@@ -185,12 +186,12 @@ export default {
   transition: all 1s;
 }
 
-@media(max-width: 768px){
-  .inputs input{
+@media (max-width: 768px) {
+  .inputs input {
     width: 80%;
   }
 
-  .inputs input:focus{
+  .inputs input:focus {
     width: 90%;
   }
 }

@@ -102,11 +102,18 @@
 
       <div class="d-flex flex-column align-items-center mt-4">
         <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="terms" v-model="terms"/>
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="terms"
+            v-model="terms"
+          />
           <label class="text-light form-check-label" for="terms"
             >Terms & Conditions</label
           >
-          <p class="text-danger" v-if="!terms && submited">please accept terms</p>
+          <p class="text-danger" v-if="!terms && submited">
+            please accept terms
+          </p>
         </div>
       </div>
 
@@ -115,14 +122,7 @@
           type="button"
           value="SignUp"
           class="rounded-pill d-flex mt-3 text-light p-2 pr-4 pl-4"
-          @click="
-            () => {
-              submited = true;
-              if (!userNameErrors && !passwordErrors && !emailErrors && !phonenumberErrors && terms) {
-                this.$router.push('/signin');
-              }
-            }
-          "
+          @click="handleSignup"
         />
       </div>
     </div>
@@ -199,9 +199,24 @@ export default {
     },
   },
 
-    head() {
+  methods: {
+    async handleSignup() {
+      this.submited = true;
+      if (
+        !this.userNameErrors &&
+        !this.passwordErrors &&
+        !this.emailErrors &&
+        !this.phonenumberErrors &&
+        this.terms
+      ) {
+        this.$router.push("/signin");
+      }
+    },
+  },
+
+  head() {
     return {
-      title: 'Sign up',
+      title: "Sign up",
       meta: [
         {
           hid: "description",
@@ -213,3 +228,56 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.logIn {
+  background-color: #343a40;
+  margin: 0 auto;
+}
+
+.inputs input {
+  height: 50px;
+  width: 65%;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+  border: 2px #3498db solid;
+  margin: 0 auto;
+  transition: 0.5s;
+}
+
+.inputs input:focus {
+  width: 70%;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.links a:hover {
+  text-decoration: underline !important;
+}
+
+.submit-logIn input {
+  border: 2px #ff5c01 solid;
+  background-color: rgba(0, 0, 0, 0);
+  margin: 0 auto;
+  transition: 0.5s;
+}
+
+.submit-logIn input:hover {
+  background-color: #ff5c01;
+}
+
+.icons a:hover {
+  transform: rotate(360deg);
+  transition: all 1s;
+}
+
+@media (max-width: 768px) {
+  .inputs input {
+    width: 80%;
+  }
+
+  .inputs input:focus {
+    width: 90%;
+  }
+}
+</style>

@@ -8,18 +8,15 @@
       <div class="p-md-5 p-4">
         <h2 class="text-center header-feature h1">All Products</h2>
         <div class="mt-5 text-center">
-          <select class="col-md-3 col-10">
-            <option value="all">All Lamp</option>
-            <option value="study">Study Lamp</option>
-            <option value="kitchen">Kitchen Lamp</option>
-            <option value="livingRoom">Living Room Lamp</option>
+          <select class="col-md-3 col-10" @change="changeCategory" v-model="categoryId">
+            <option v-for="category in categories" :key="category.id" :value="category.id" >{{category.name}}</option>
           </select>
         </div>
       </div>
 
       <div class="d-flex flex-wrap justify-content-center">
         <Card
-          v-for="product in products"
+          v-for="product in productByCategory"
           :key="product.id"
           :lamp="product"
           class="
@@ -42,8 +39,20 @@
 import { mapState } from "vuex";
 
 export default {
+  data(){
+    return{
+      "categoryId" : 1,
+      "productByCategory" : this.$store.getters.getProductByCategory(1)
+    }
+  },
   computed: {
-    ...mapState(["products"]),
+    ...mapState(["products", "categories"]),
+  },
+
+  methods: {
+    changeCategory(){
+      this.productByCategory = this.$store.getters.getProductByCategory(this.categoryId)
+    }
   },
 
   head() {
