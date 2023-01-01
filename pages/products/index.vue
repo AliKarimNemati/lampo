@@ -1,15 +1,38 @@
 <template>
-  <div class="">
+  <div>
     <div class="col-12 banner mt-5 pt-4 p-0">
       <img src="img/banner.jpg" class="rounded w-100 h-100" />
     </div>
 
     <div class="p-md-5 p-4">
       <div class="p-md-5 p-4">
-        <h2 class="text-center header-feature h1">All Products</h2>
-        <div class="mt-5 text-center">
-          <select class="col-md-3 col-10" @change="changeCategory" v-model="categoryId">
-            <option v-for="category in categories" :key="category.id" :value="category.id" >{{category.name}}</option>
+        <h2 class="text-center header-feature h1">{{ category.name }}</h2>
+
+        <!-- category large mode -->
+        <div class="d-none d-md-flex justify-content-center flex-wrap border-bottom pb-5">
+          <CategoryCard
+            v-for="category in categories.slice(0, 4)"
+            :key="category.id"
+            class="ml-3"
+            :category="category"
+          />
+        </div>
+
+
+        <!-- category mobile mode -->
+        <div class="d-md-none mt-5 text-center">
+          <select
+            class="col-md-3 col-10"
+            @change="changeCategory"
+            v-model="categoryId"
+          >
+            <option
+              v-for="category in categories"
+              :key="category.id"
+              :value="category.id"
+            >
+              {{ category.name }}
+            </option>
           </select>
         </div>
       </div>
@@ -23,7 +46,7 @@
             ml-md-4
             mr-md-4
             mt-md-4
-            col-md-2 col-5
+            col-lg-2 col-md-4 col-5
             mr-md-0
             ml-md-0
             mr-2
@@ -39,20 +62,27 @@
 import { mapState } from "vuex";
 
 export default {
-  data(){
-    return{
-      "categoryId" : 1,
-      "productByCategory" : this.$store.getters.getProductByCategory(1)
-    }
+  data() {
+    return {
+      categoryId: 1,
+      productByCategory: this.$store.getters.getProductByCategory(1),
+      category: this.$store.getters.getCategoryById(1),
+    };
   },
   computed: {
     ...mapState(["products", "categories"]),
   },
 
+
   methods: {
-    changeCategory(){
-      this.productByCategory = this.$store.getters.getProductByCategory(this.categoryId)
-    }
+    changeCategory() {
+      this.productByCategory = this.$store.getters.getProductByCategory(
+        this.categoryId
+      );
+
+      this.category = this.$store.getters.getCategoryById(this.categoryId)
+
+    },
   },
 
   head() {

@@ -21,11 +21,11 @@
           flex-wrap
         "
       >
-        <Card
-          v-for="product in products.slice(9, 12)"
-          :key="product.id"
+        <CategoryCard
+          v-for="category in categories.slice(1,4)"
+          :key="category.id"
           class="ml-3"
-          :lamp="product"
+          :category="category"
         />
       </div>
 
@@ -37,11 +37,11 @@
         :speed="2000"
         class="col-12 ml-auto mr-auto d-md-none d-block mt-4"
       >
-        <Card
-          v-for="product in products.slice(9, 12)"
-          :key="product.id"
+        <CategoryCard
+          v-for="category in categories.slice(0, 4)"
+          :key="category.id"
         class="col-11 mb-4"
-          :lamp="product"
+          :category="category"
         />
       </VueSlickCarousel>
     </div>
@@ -183,7 +183,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["products"]),
+    ...mapState(["categories"]),
   },
 };
 </script>
