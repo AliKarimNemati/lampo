@@ -17,31 +17,33 @@
         'd-block': this.cart.length != 0,
       }"
     >
-      <table class="table text-light col-md-10 text-center mx-auto">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col" class="col-md-3">Product</th>
-            <th scope="col">Price</th>
-            <th scope="col">Number</th>
-            <th scope="col">Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(cartItem, i) in cart" :key="cartItem.id">
-            <th scope="row">{{ i + 1 }}</th>
-            <td>{{ cartItem.name }}</td>
-            <td>${{ cartItem.price }}</td>
-            <td>{{ cartItem.count }}</td>
-            <td>{{ cartItem.count * cartItem.price }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <h3 class="text-center">Total: ${{ total }}</h3>
+      <div class="mx-auto col-md-10 bg-dark pt-5 px-5 pb-4 rounded">
+        <table class="table text-light  text-center border">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col" class="col-md-3">Product</th>
+              <th scope="col">Price</th>
+              <th scope="col">Number</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(cartItem, i) in cart" :key="cartItem.id">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ cartItem.name }}</td>
+              <td>${{ cartItem.price }}</td>
+              <td>{{ cartItem.count }}</td>
+              <td>{{ cartItem.count * cartItem.price }}</td>
+            </tr>
+          </tbody>
+        </table>
+      <h3 class="text-center mt-4">Total: ${{ total }}</h3>
+      </div>
 
       <Form v-if="cart.length != 0" />
 
-      <div class="text-center mt-5">
+      <div class="text-center mt-4">
         <button
           class="text-light btn shop-btn rounded-pill p-2 pl-4 pr-4 mr-3"
           @click="
@@ -107,7 +109,7 @@ export default {
 
   head() {
     return {
-      title: 'Check out',
+      title: "Check out",
       meta: [
         {
           hid: "description",

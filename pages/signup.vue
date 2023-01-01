@@ -231,7 +231,7 @@ export default {
 
 <style scoped>
 .logIn {
-  background-color: #343a40;
+  background-color: #2a2a2a;
   margin: 0 auto;
 }
 
