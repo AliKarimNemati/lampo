@@ -184,5 +184,8 @@ export const mutations = {
     },
     emptyCart(state){
         state.cart = [];
+        state.products.forEach(product => {
+            product.count = 0;
+        });
     }
 }
