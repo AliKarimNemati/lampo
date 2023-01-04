@@ -6,9 +6,9 @@
         v-b-toggle.sidebar-backdrop
       ></i>
 
-    <!-- signin & signup -->
       <div class="d-flex d-md-none">
         <div class="align-self-center mr-3">
+          <!-- signin & sign up -->
           <div>
             <nuxt-link to="/signin" class="text-light text-decoration-none mr-2"
               >Sign in</nuxt-link
@@ -54,9 +54,7 @@
             >{{ this.$store.getters.getItemsCount }}</b-badge
           >
         </nuxt-link>
-      
       </div>
-      
       <div
         class="
           mt-3
@@ -81,7 +79,8 @@
             placeholder="search"
           />
 
-          <div class="d-flex">
+          <!-- signin & signup -->
+          <div class="d-flex" v-if="false">
             <nuxt-link
               to="/signin"
               class="
@@ -109,7 +108,7 @@
           </div>
 
           <!-- user info -->
-          <div class="mr-3" v-if="false">
+          <div class="mr-3">
             <b-button id="user-info" class="p-0 user-info">
               <b-avatar variant="dark"></b-avatar>
             </b-button>
@@ -120,12 +119,15 @@
               variant="dark"
             >
               <template #title><div class="text-dark">User Info</div></template>
-              <div class="p-4 text-center">
+              <div class="p-4 px-5 text-center d-flex flex-column">
                 <h5>Username</h5>
                 <h5>test@gmail.com</h5>
                 <button class="mt-2 p-1 align-self-center btn btn-outline-dark">
                   Sign out
                 </button>
+                <nuxt-link to="/admin" class="mt-2 p-1 align-self-center btn btn-outline-dark">
+                  admin
+                </nuxt-link>
               </div>
             </b-popover>
           </div>

@@ -15,7 +15,7 @@
       <p class="price m-0"><span class="sign">$</span>{{ lamp.price }}</p>
       <div
         class="plus rounded-circle"
-        v-if="lamp.count == 0"
+        v-if="lamp.count == 0 && this.$route.name != 'admin-manage-product'"
         @click="
           () => {
             showAlert();
@@ -29,36 +29,43 @@
         +
       </div>
 
-       <div
-          class="count-item  rounded d-flex flex-row-reverse"
-          v-if="lamp.count > 0"
-        >
-          <span
-            class="ml-3 plus-item bi bi-plus"
-            @click="addCartItemCount(lamp.id)"
-          ></span>
-          <p class="m-0 p-0">{{ lamp.count }}</p>
-          <span
-            class="mr-3 minus-item bi"
-            :class="{
-              'bi-dash': lamp.count > 1,
-              'bi-trash3': lamp.count <= 1,
-            }"
-            @click="
-              () => {
-                minCartItemCount(lamp.id);
+      <div
+        class="count-item rounded d-flex flex-row-reverse"
+        v-if="lamp.count && this.$route.name != 'admin-manage-product' > 0"
+      >
+        <span
+          class="ml-3 plus-item bi bi-plus"
+          @click="addCartItemCount(lamp.id)"
+        ></span>
+        <p class="m-0 p-0">{{ lamp.count }}</p>
+        <span
+          class="mr-3 minus-item bi"
+          :class="{
+            'bi-dash': lamp.count > 1,
+            'bi-trash3': lamp.count <= 1,
+          }"
+          @click="
+            () => {
+              minCartItemCount(lamp.id);
 
-                if (lamp.count <= 0) {
-                  removeItems(lamp.id);
-                }
+              if (lamp.count <= 0) {
+                removeItems(lamp.id);
               }
-            "
-          ></span>
-        </div>
+            }
+          "
+        ></span>
+      </div>
 
+      <!-- edit btn -->
+      <div class="mt-2" v-if="this.$route.name == 'admin-manage-product'">
+        <nuxt-link
+          :to="'/admin/manage-product/' + lamp.id"
+          class="text-danger h5"
+          >Edit</nuxt-link
+        >
+      </div>
     </div>
 
-       
     <!-- Alert -->
 
     <div class="alert">
@@ -78,8 +85,6 @@
         ></b-progress>
       </b-alert>
     </div>
-
-
   </div>
 </template>
 
@@ -95,7 +100,12 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["addItems", "addCartItemCount","minCartItemCount","removeItems"]),
+    ...mapMutations([
+      "addItems",
+      "addCartItemCount",
+      "minCartItemCount",
+      "removeItems",
+    ]),
     countDownChanged(dismissCountDown) {
       this.dismissCountDown = dismissCountDown;
     },

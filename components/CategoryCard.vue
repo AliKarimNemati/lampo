@@ -1,7 +1,7 @@
 <template>
   <div class="mt-4 card-product-cat bg-dark">
     <div class="card-img-cat col-12">
-      <img :src="'img/' + category.img" class="w-100 h-100" />
+      <img :src="'/img/' + category.img" class="w-100 h-100" />
     </div>
     <div class="mt-3">
       <nuxt-link
@@ -9,6 +9,9 @@
         class="text-light product-name text-decoration-none header-feature"
         >{{ category.name }}</nuxt-link
       >
+    </div>
+    <div v-if="this.$route.name == 'admin-manage-category'">
+      <nuxt-link :to="'/admin/manage-category/' + category.id" class="h5 text-danger">Edit</nuxt-link>
     </div>
   </div>
 </template>
