@@ -1,23 +1,51 @@
 <template>
   <div class="top-nav">
-    <!-- desktop mode -->
     <b-navbar toggleable="lg" type="dark" class="pr-lg-5 pr-2 pl-lg-5 pl-2">
       <i
         class="bi bi-list h1 text-light menu-icon d-lg-none d-block m-2"
         v-b-toggle.sidebar-backdrop
       ></i>
-      <div class="d-block d-md-none">
-        <nuxt-link to="signin" class="text-light text-decoration-none mr-2"
-          >Sign in</nuxt-link
-        >
-        <nuxt-link
-          to="signup"
-          class="text-light text-decoration-none border rounded-lg p-1 px-2"
-          >Sign up</nuxt-link
-        >
+
+    <!-- signin & signup -->
+      <div class="d-flex d-md-none">
+        <div class="align-self-center mr-3">
+          <div>
+            <nuxt-link to="/signin" class="text-light text-decoration-none mr-2"
+              >Sign in</nuxt-link
+            >
+            <nuxt-link
+              to="/signup"
+              class="text-light text-decoration-none border rounded-lg p-1 px-2"
+              >Sign up</nuxt-link
+            >
+          </div>
+
+          <!-- user info -->
+          <div class="mr-3" v-if="false">
+            <b-button id="user-info" class="p-0 user-info">
+              <b-avatar variant="dark"></b-avatar>
+            </b-button>
+            <b-popover
+              target="user-info"
+              triggers="hover"
+              placement="bottom"
+              variant="dark"
+            >
+              <template #title><div class="text-dark">User Info</div></template>
+              <div class="p-4 text-center">
+                <h5>Username</h5>
+                <h5>test@gmail.com</h5>
+                <button class="mt-2 p-1 align-self-center btn btn-outline-dark">
+                  Sign out
+                </button>
+              </div>
+            </b-popover>
+          </div>
+        </div>
+
         <nuxt-link
           to="/cart"
-          class="text-light mb-4 mt-3 mr-4 ml-4 m-0 pt-1 bi bi-bag-dash h3"
+          class="text-light align-self-center mb-2 pt-1 bi bi-bag-dash h3"
         >
           <b-badge
             variant="light"
@@ -26,7 +54,9 @@
             >{{ this.$store.getters.getItemsCount }}</b-badge
           >
         </nuxt-link>
+      
       </div>
+      
       <div
         class="
           mt-3
@@ -37,6 +67,7 @@
           header-feature
         "
       >
+        <!-- desktop mode -->
         <b-navbar-nav>
           <b-navbar-brand to="/" class="navbar-brand">Lampo</b-navbar-brand>
           <b-nav-item to="/#products" active>Product</b-nav-item>
@@ -49,22 +80,100 @@
             class="search-input mr-4 text-light rounded-pill"
             placeholder="search"
           />
-          <nuxt-link to="signin" class="text-light text-decoration-none mr-3 signup-btn align-self-center"
-            >Sign in</nuxt-link
-          >
-          <nuxt-link
-            to="signup"
-            class="text-light text-decoration-none border rounded-lg p-1 px-2 mr-3 signup-btn align-self-center"
-            >Sign up</nuxt-link
-          >
-          <nuxt-link to="/cart" class="text-light m-0 pt-1 bi bi-bag-dash h3">
-            <b-badge
-              variant="light"
-              class="rounded-circle cart-icon-count"
-              :class="{ 'd-none': this.cart.length == 0 }"
-              >{{ this.$store.getters.getItemsCount }}</b-badge
+
+          <div class="d-flex">
+            <nuxt-link
+              to="/signin"
+              class="
+                text-light text-decoration-none
+                mr-3
+                signup-btn
+                align-self-center
+              "
+              >Sign in</nuxt-link
             >
-          </nuxt-link>
+            <nuxt-link
+              to="/signup"
+              class="
+                text-light text-decoration-none
+                border
+                rounded-lg
+                p-1
+                px-2
+                mr-3
+                signup-btn
+                align-self-center
+              "
+              >Sign up</nuxt-link
+            >
+          </div>
+
+          <!-- user info -->
+          <div class="mr-3" v-if="false">
+            <b-button id="user-info" class="p-0 user-info">
+              <b-avatar variant="dark"></b-avatar>
+            </b-button>
+            <b-popover
+              target="user-info"
+              triggers="hover"
+              placement="bottom"
+              variant="dark"
+            >
+              <template #title><div class="text-dark">User Info</div></template>
+              <div class="p-4 text-center">
+                <h5>Username</h5>
+                <h5>test@gmail.com</h5>
+                <button class="mt-2 p-1 align-self-center btn btn-outline-dark">
+                  Sign out
+                </button>
+              </div>
+            </b-popover>
+          </div>
+
+          <!-- cart button -->
+          <button id="cart" class="user-info">
+            <nuxt-link to="/cart" class="text-light m-0 pt-1 bi bi-bag-dash h3">
+              <b-badge
+                variant="light"
+                class="rounded-circle cart-icon-count"
+                :class="{ 'd-none': this.cart.length == 0 }"
+                >{{ this.$store.getters.getItemsCount }}</b-badge
+              >
+            </nuxt-link>
+          </button>
+
+          <!-- cart items -->
+          <b-popover
+            target="cart"
+            triggers="hover"
+            placement="bottom"
+            variant="dark"
+            v-if="cart.length != 0"
+          >
+            <div
+              v-for="(cartProduct, i) in cart.slice(0, 4)"
+              :key="cartProduct.id"
+              class="d-flex mt-3 pb-3 border-dark"
+              :class="{ 'border-bottom': i < cart.length - 1 && i < 3 }"
+            >
+              <div class="col-4 p-0">
+                <img
+                  :src="'/img/' + cartProduct.img"
+                  class="w-100 cart-card-img"
+                />
+              </div>
+              <div class="col-8 p-0 ml-2">
+                <nuxt-link
+                  :to="'/products/' + cartProduct.id"
+                  class="text-dark text-decoration-none h5 header-feature"
+                  >{{ cartProduct.name }}</nuxt-link
+                >
+                <p class="price m-0">
+                  <span class="sign">$</span>{{ cartProduct.price }}
+                </p>
+              </div>
+            </div>
+          </b-popover>
         </div>
       </div>
     </b-navbar>
@@ -192,7 +301,18 @@ export default {
   color: #eee;
 }
 
-.signup-btn{
+.signup-btn {
   font-family: sans-serif;
+}
+
+.user-info,
+.user-info:hover {
+  background: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.cart-card-img {
+  height: 80px;
+  border-radius: 10px;
 }
 </style>
