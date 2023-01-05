@@ -20,24 +20,24 @@
         </p>
         <div
           class="count-item mt-3 mb-3 rounded d-flex flex-row-reverse"
-          v-if="lamp.count > 0"
+          v-if="itemsFromCart"
         >
           <span
             class="ml-3 plus-item bi bi-plus"
             @click="addCartItemCount(lamp.id)"
           ></span>
-          <p class="m-0 p-0">{{ lamp.count }}</p>
+          <p class="m-0 p-0">{{ itemsFromCart.count }}</p>
           <span
             class="mr-3 minus-item bi"
             :class="{
-              'bi-dash': lamp.count > 1,
-              'bi-trash3': lamp.count <= 1,
+              'bi-dash': itemsFromCart.count > 1,
+              'bi-trash3': itemsFromCart.count <= 1,
             }"
             @click="
               () => {
                 minCartItemCount(lamp.id);
 
-                if (lamp.count <= 0) {
+                if (itemsFromCart.count <= 0) {
                   removeItems(lamp.id);
                 }
               }
@@ -58,7 +58,7 @@
             text-center
             mt-3
           "
-          v-if="lamp.count <= 0"
+          v-if="itemsFromCart == undefined"
           @click="
             () => {
               showAlert();
@@ -103,6 +103,7 @@ export default {
       dismissSecs: 3,
       dismissCountDown: 0,
       showDismissibleAlert: false,
+      itemsFromCart: {},
     };
   },
 
@@ -120,6 +121,17 @@ export default {
     showAlert() {
       this.dismissCountDown = this.dismissSecs;
     },
+  },
+
+  mounted() {
+    this.itemsFromCart = this.$store.getters.getItemsFromCart(
+      Number(this.lamp.id)
+    );
+  },
+  updated() {
+    this.itemsFromCart = this.$store.getters.getItemsFromCart(
+      Number(this.lamp.id)
+    );
   },
 
   head() {

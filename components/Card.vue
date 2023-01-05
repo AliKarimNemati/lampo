@@ -15,13 +15,14 @@
       <p class="price m-0"><span class="sign">$</span>{{ lamp.price }}</p>
       <div
         class="plus rounded-circle"
-        v-if="lamp.count == 0 && this.$route.name != 'admin-manage-product'"
+        v-if="
+          itemsFromCart == undefined &&
+          this.$route.name != 'admin-manage-product'
+        "
         @click="
           () => {
             showAlert();
-            if (lamp.count == 0) {
-              addItems(lamp.id);
-            }
+            addItems(lamp.id);
             addCartItemCount(lamp.id);
           }
         "
@@ -31,24 +32,24 @@
 
       <div
         class="count-item rounded d-flex flex-row-reverse"
-        v-if="lamp.count && this.$route.name != 'admin-manage-product' > 0"
+        v-if="itemsFromCart && this.$route.name != 'admin-manage-product' > 0"
       >
         <span
           class="ml-3 plus-item bi bi-plus"
           @click="addCartItemCount(lamp.id)"
         ></span>
-        <p class="m-0 p-0">{{ lamp.count }}</p>
+        <p class="m-0 p-0">{{ itemsFromCart.count }}</p>
         <span
           class="mr-3 minus-item bi"
           :class="{
-            'bi-dash': lamp.count > 1,
-            'bi-trash3': lamp.count <= 1,
+            'bi-dash': itemsFromCart.count > 1,
+            'bi-trash3': itemsFromCart.count <= 1,
           }"
           @click="
             () => {
               minCartItemCount(lamp.id);
 
-              if (lamp.count <= 0) {
+              if (itemsFromCart.count <= 0) {
                 removeItems(lamp.id);
               }
             }
@@ -90,6 +91,7 @@
 
 <script>
 import { mapMutations } from "vuex";
+
 export default {
   props: ["lamp"],
   data() {
@@ -97,6 +99,7 @@ export default {
       dismissSecs: 3,
       dismissCountDown: 0,
       showDismissibleAlert: false,
+      itemsFromCart: this.$store.getters.getItemsFromCart(Number(this.lamp.id)),
     };
   },
   methods: {
@@ -112,6 +115,12 @@ export default {
     showAlert() {
       this.dismissCountDown = this.dismissSecs;
     },
+  },
+
+  updated() {
+    this.itemsFromCart = this.$store.getters.getItemsFromCart(
+      Number(this.lamp.id)
+    );
   },
 };
 </script>

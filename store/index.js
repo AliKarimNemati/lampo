@@ -98,16 +98,16 @@ export const state = () => ({
             count: 0
         },
     ],
-    categories:[
+    categories: [
         {
             id: 1,
-            name:'All Lamp',
+            name: 'All Lamp',
             img: 'lamp1.jpg',
 
         },
         {
             id: 2,
-            name:'Study Lamp',
+            name: 'Study Lamp',
             img: 'study-lamp-ca.webp',
         },
         {
@@ -133,10 +133,10 @@ export const getters = {
     },
 
     getProductByCategory: (state) => (id) => {
-        if(id != 1){
+        if (id != 1) {
             return state.products.filter(item => item.category == id)
         }
-        else{
+        else {
             return state.products
         }
     },
@@ -163,6 +163,10 @@ export const getters = {
         });
 
         return count;
+    },
+
+    getItemsFromCart: (state) => (id) => {
+        return state.cart.find(item => item.id == id)
     }
 }
 
@@ -170,22 +174,34 @@ export const mutations = {
     addItems(state, id) {
         let items = state.products.find(product => product.id == id);
         state.cart.push(items);
+        localStorage.setItem('cart', JSON.stringify(state.cart))
     },
     removeItems(state, id) {
         state.cart = state.cart.filter(item => item.id != id);
+        localStorage.setItem('cart', JSON.stringify(state.cart))
+
     },
     addCartItemCount(state, id) {
-        let items = state.products.find(product => product.id == id);
+        let items = state.cart.find(product => product.id == id);
         items.count++;
+        localStorage.setItem('cart', JSON.stringify(state.cart))
     },
     minCartItemCount(state, id) {
-        let items = state.products.find(product => product.id == id);
+        let items = state.cart.find(product => product.id == id);
         items.count--;
+        localStorage.setItem('cart', JSON.stringify(state.cart))
     },
-    emptyCart(state){
+    emptyCart(state) {
         state.cart = [];
+        localStorage.removeItem('cart');
         state.products.forEach(product => {
             product.count = 0;
         });
+    },
+    addCartToLocalStorage(state) {
+        localStorage.setItem('cart', JSON.stringify(state.cart))
+    },
+    setCart(state) {
+        state.cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
     }
 }
