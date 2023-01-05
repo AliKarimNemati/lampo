@@ -27,6 +27,8 @@ export default {
     const hiddenPara = document.querySelectorAll(".hero-txt-para-hidden");
     hiddenPara.forEach((el) => paraObserver.observe(el));
   },
+
+
 };
 </script>
 
