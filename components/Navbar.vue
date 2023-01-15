@@ -8,20 +8,9 @@
 
       <div class="d-flex d-md-none">
         <div class="align-self-center mr-3">
-          <!-- signin & sign up -->
-          <div>
-            <nuxt-link to="/signin" class="text-light text-decoration-none mr-2"
-              >Sign in</nuxt-link
-            >
-            <nuxt-link
-              to="/signup"
-              class="text-light text-decoration-none border rounded-lg p-1 px-2"
-              >Sign up</nuxt-link
-            >
-          </div>
 
           <!-- user info -->
-          <div class="mr-3" v-if="false">
+          <div class="mr-3" v-if="isSignined">
             <b-button id="user-info" class="p-0 user-info">
               <b-avatar variant="dark"></b-avatar>
             </b-button>
@@ -40,6 +29,18 @@
                 </button>
               </div>
             </b-popover>
+          </div>
+
+          <!-- signin & sign up -->
+          <div v-else>
+            <nuxt-link to="/signin" class="text-light text-decoration-none mr-2"
+              >Sign in</nuxt-link
+            >
+            <nuxt-link
+              to="/signup"
+              class="text-light text-decoration-none border rounded-lg p-1 px-2"
+              >Sign up</nuxt-link
+            >
           </div>
         </div>
 
@@ -79,8 +80,36 @@
             placeholder="search"
           />
 
+          <!-- user info -->
+          <div class="mr-3" v-if="isSignined">
+            <b-button id="user-info-md" class="p-0 user-info">
+              <b-avatar variant="dark"></b-avatar>
+            </b-button>
+            <b-popover
+              target="user-info-md"
+              triggers="hover"
+              placement="bottom"
+              variant="dark"
+            >
+              <template #title><div class="text-dark">User Info</div></template>
+              <div class="p-4 px-5 text-center d-flex flex-column">
+                <h5>Username</h5>
+                <h5>test@gmail.com</h5>
+                <button class="mt-2 p-1 align-self-center btn btn-outline-dark" @click="manageSignout">
+                  Sign out
+                </button>
+                <nuxt-link
+                  to="/admin"
+                  class="mt-2 p-1 align-self-center btn btn-outline-dark"
+                >
+                  admin
+                </nuxt-link>
+              </div>
+            </b-popover>
+          </div>
+
           <!-- signin & signup -->
-          <div class="d-flex" v-if="false">
+          <div class="d-flex" v-else>
             <nuxt-link
               to="/signin"
               class="
@@ -105,31 +134,6 @@
               "
               >Sign up</nuxt-link
             >
-          </div>
-
-          <!-- user info -->
-          <div class="mr-3">
-            <b-button id="user-info" class="p-0 user-info">
-              <b-avatar variant="dark"></b-avatar>
-            </b-button>
-            <b-popover
-              target="user-info"
-              triggers="hover"
-              placement="bottom"
-              variant="dark"
-            >
-              <template #title><div class="text-dark">User Info</div></template>
-              <div class="p-4 px-5 text-center d-flex flex-column">
-                <h5>Username</h5>
-                <h5>test@gmail.com</h5>
-                <button class="mt-2 p-1 align-self-center btn btn-outline-dark">
-                  Sign out
-                </button>
-                <nuxt-link to="/admin" class="mt-2 p-1 align-self-center btn btn-outline-dark">
-                  admin
-                </nuxt-link>
-              </div>
-            </b-popover>
           </div>
 
           <!-- cart button -->
@@ -231,6 +235,7 @@
 
 <script>
 import { mapState } from "vuex";
+import { mapMutations } from "vuex";
 
 export default {
   name: "navbar",
@@ -241,15 +246,17 @@ export default {
     };
   },
   computed: {
-    ...mapState(["cart"]),
+    ...mapState(["cart", "isSignined"]),
+    ...mapMutations(['signout'])
   },
   methods: {
     handleOpenNav() {
       this.openNav = !this.openNav;
     },
+    manageSignout(){
+      this.signout;
+    }
   },
-
-  mounted() {},
 };
 </script>
 

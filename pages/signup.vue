@@ -141,10 +141,10 @@ export default {
 
       submited: false,
 
-      userNameErrors: true,
-      passwordErrors: true,
-      emailErrors: true,
-      phonenumberErrors: true,
+      userNameErrors: false,
+      passwordErrors: false,
+      emailErrors: false,
+      phonenumberErrors: false,
     };
   },
   computed: {
@@ -229,7 +229,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+body {
+  color: #eee;
+  background: #181818;
+}
 .logIn {
   background-color: #2a2a2a;
   margin: 0 auto;

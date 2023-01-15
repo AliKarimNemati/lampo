@@ -1,4 +1,5 @@
 export const state = () => ({
+    isSignedIn: false,
     cart: [],
     products: [
         {

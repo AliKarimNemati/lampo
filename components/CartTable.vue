@@ -17,14 +17,18 @@
           adipisicing
         </p>
         <p class="h2 m-0"><span class="sign">$</span>{{ cartItem.price }}</p>
-        <div class="count-item mt-3 mb-3 rounded d-flex flex-row-reverse">
-          <span class="ml-3 plus-item bi bi-plus" @click="addCartItemCount(cartItem.id)"
-            ></span
-          >
+        <div class="count-item mt-3 mb-2 rounded d-flex flex-row-reverse">
+          <span
+            class="ml-3 plus-item bi bi-plus"
+            @click="addCartItemCount(cartItem.id)"
+          ></span>
           <p class="m-0 p-0">{{ cartItem.count }}</p>
           <span
             class="mr-3 minus-item bi"
-            :class="{'bi-dash': cartItem.count > 1, 'bi-trash3' : cartItem.count <= 1}"
+            :class="{
+              'bi-dash': cartItem.count > 1,
+              'bi-trash3': cartItem.count <= 1,
+            }"
             @click="
               () => {
                 minCartItemCount(cartItem.id);
@@ -34,9 +38,9 @@
                 }
               }
             "
-            ></span
-          >
+          ></span>
         </div>
+        <button class="mb-0 remove-item" @click="removeItems(cartItem.id)">remove</button>
       </div>
     </div>
 
@@ -64,9 +68,10 @@
         'd-block': this.cart.length != 0,
       }"
     >
+      <p class="h1 m-0">Total: <span class="sign-total">$</span>{{ total }}</p>
       <nuxt-link
-        class="text-light btn shop-btn rounded-pill p-2 pl-4 pr-4 mr-3"
-        to="/check-out"
+        class="text-light btn shop-btn rounded-pill p-2 pl-4 pr-4 mr-3 mt-5"
+        to="/signin"
       >
         Continue
       </nuxt-link>
@@ -78,6 +83,16 @@
 import { mapState } from "vuex";
 import { mapMutations } from "vuex";
 export default {
+  data() {
+    return {
+      total: this.$store.getters.getTotal,
+    };
+  },
+
+  updated() {
+    this.total = this.$store.getters.getTotal;
+  },
+
   computed: {
     ...mapState(["cart"]),
   },
@@ -135,6 +150,22 @@ export default {
 .minus-item {
   cursor: pointer;
   color: #ff5c01;
+}
+
+.sign-total {
+  color: #ff5c01;
+  font-size: 1.8rem !important;
+}
+
+.remove-item {
+  display: flex;
+  color: #ff5c01;
+  background: none;
+  border: none;
+}
+
+.remove-item:hover {
+  border-bottom: 1px solid #ff5c01;
 }
 
 @media (max-width: 768px) {

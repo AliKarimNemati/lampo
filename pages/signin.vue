@@ -66,7 +66,7 @@
       <div class="submit-logIn">
         <input
           type="button"
-          value="Login"
+          value="Sign in"
           class="rounded-pill d-flex mt-3 text-light p-2 pr-4 pl-4"
           @click="handleSignin"
         />
@@ -87,9 +87,14 @@ export default {
     return {
       userName: "",
       password: "",
+      info: {
+        userName: this.userName,
+        password: this.password,
+      },
+
       submited: false,
-      userNameErrors: true,
-      passwordErrors: true,
+      userNameErrors: false,
+      passwordErrors: false,
     };
   },
   computed: {
@@ -108,21 +113,27 @@ export default {
 
     passwordValidation() {
       if (this.submited) {
-        if (this.password.length <= 8) {
+        if (this.password.length <= 7) {
           this.passwordErrors = true;
         }
 
-        if (this.password.length > 8) {
+        if (this.password.length > 7) {
           this.passwordErrors = false;
         }
-        return this.password.length > 8;
+        return this.password.length > 7;
       }
     },
   },
 
   methods: {
-    handleSignin() {
+
+    async handleSignin() {
+      if (this.userName == "" || this.password == "") {
+        this.userNameErrors = true;
+        this.passwordErrors = true;
+      }
       this.submited = true;
+
       if (!this.userNameErrors && !this.passwordErrors) {
         this.$router.push("/");
       }
@@ -145,6 +156,11 @@ export default {
 </script>
 
 <style>
+body {
+  color: #eee;
+  background: #181818;
+}
+
 .logIn {
   background-color: #2a2a2a;
   margin: 0 auto;

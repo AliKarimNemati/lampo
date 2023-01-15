@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-cloak>
     <Navbar />
     <Nuxt />
     <Footer />
@@ -14,9 +14,6 @@ export default {
   },
   beforeMount() {
     this.setCart;
-  },
-
-  beforeCreate() {
     this.$nextTick(() => {
       this.$nuxt.$loading.start();
       setTimeout(() => this.$nuxt.$loading.finish(), 800);
@@ -27,13 +24,15 @@ export default {
     name: "home",
     mode: "out-in",
   },
-
-
 };
 </script>
 
 <style>
 .b-overlay {
   height: 100vh;
+}
+
+[v-cloak] > * {
+  display: none;
 }
 </style>
