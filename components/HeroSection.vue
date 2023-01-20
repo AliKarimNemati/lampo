@@ -9,7 +9,7 @@
         <h1 class="header-txt hero-txt-hidden">Light Up Your Home</h1>
         <p class="text-secondary hero-txt-para-hidden">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eos eum
-          doloremque in iusto corrupti deleniti dolores reiciendis?
+          doloremque in iusto corrupti deleniti dolores reiciendi?
         </p>
         <div class="d-flex flex-wrap hero-txt-para-hidden">
           <nuxt-link
