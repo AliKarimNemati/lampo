@@ -13,11 +13,14 @@ export default {
     ...mapMutations(["setCart"]),
   },
   beforeMount() {
-    this.setCart;
     this.$nextTick(() => {
       this.$nuxt.$loading.start();
       setTimeout(() => this.$nuxt.$loading.finish(), 800);
     });
+  },
+
+  mounted(){
+    this.setCart;
   },
 
   transition: {

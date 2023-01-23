@@ -47,7 +47,7 @@
     <div
       class="h3 text-secondary text-center"
       :class="{
-        'd-none': this.cart.lenght != 0,
+        'd-none': this.cart.length != 0,
         'd-block': this.cart.length == 0,
       }"
     >
