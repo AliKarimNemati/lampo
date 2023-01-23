@@ -15,46 +15,22 @@
       <p class="price m-0"><span class="sign">$</span>{{ lamp.price }}</p>
       <div
         class="plus rounded-circle"
-        v-if="
-          itemsFromCart == undefined &&
-          this.$route.name != 'admin-manage-product'
-        "
+        v-if="this.$route.name != 'admin-manage-product'"
         @click="
           () => {
             showAlert();
-            addItems(lamp.id);
-            addCartItemCount(lamp.id);
+            if (
+              this.$store.getters.getItemsFromCart(Number(this.lamp.id)) == null
+            ) {
+              addItems(lamp.id);
+              addCartItemCount(lamp.id);
+            } else {
+              addCartItemCount(lamp.id);
+            }
           }
         "
       >
         +
-      </div>
-
-      <div
-        class="count-item rounded d-flex flex-row-reverse"
-        v-if="itemsFromCart && this.$route.name != 'admin-manage-product' > 0"
-      >
-        <span
-          class="ml-3 plus-item bi bi-plus"
-          @click="addCartItemCount(lamp.id)"
-        ></span>
-        <p class="m-0 p-0">{{ itemsFromCart.count }}</p>
-        <span
-          class="mr-3 minus-item bi"
-          :class="{
-            'bi-dash': itemsFromCart.count > 1,
-            'bi-trash3': itemsFromCart.count <= 1,
-          }"
-          @click="
-            () => {
-              minCartItemCount(lamp.id);
-
-              if (itemsFromCart.count <= 0) {
-                removeItems(lamp.id);
-              }
-            }
-          "
-        ></span>
       </div>
 
       <!-- edit btn -->
