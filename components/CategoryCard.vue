@@ -58,7 +58,7 @@ export default {
   }
 
   .product-name-cat {
-    font-size: 15px;
+    font-size: 1rem;
   }
 }
 </style>

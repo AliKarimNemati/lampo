@@ -36,7 +36,7 @@
       />
     </VueSlickCarousel>
 
-    <div class="text-center mt-5">
+    <div class="text-center mt-md-5 mt-3">
       <nuxt-link to="/products" class="view-all rounded-pill p-2 pr-4 pl-4 mb-2 text-decoration-none">
         View All Product
       </nuxt-link>
@@ -61,7 +61,7 @@ export default {
 
 <style>
 .view-all {
-  border: 1.6px solid gold;
+  border: 1.6px solid #ff5c01;
   background: #181818;
   color: #eee;
   font-size: 0.9rem;
@@ -69,7 +69,7 @@ export default {
 }
 
 .view-all:hover {
-  background: gold;
-  color: #181818;
+  background: #ff5c01;
+  color: #181818 !important;
 }
 </style>

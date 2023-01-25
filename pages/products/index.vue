@@ -4,12 +4,20 @@
       <img src="img/banner.jpg" class="rounded w-100 h-100" />
     </div>
 
-    <div class="p-md-5 p-4">
-      <div class="p-md-5 p-4">
+    <div class="p-md-5 p-3">
+      <div class="">
         <h2 class="text-center header-feature h1">{{ category.name }}</h2>
 
         <!-- category large mode -->
-        <div class="d-none d-md-flex justify-content-center flex-wrap border-bottom pb-5">
+        <div
+          class="
+            d-none d-md-flex
+            justify-content-center
+            flex-wrap
+            border-bottom
+            pb-5
+          "
+        >
           <CategoryCard
             v-for="category in categories.slice(0, 4)"
             :key="category.id"
@@ -18,23 +26,21 @@
           />
         </div>
 
-
-        <!-- category mobile mode -->
-        <div class="d-md-none mt-5 text-center">
-          <select
-            class="col-md-3 col-10"
-            @change="changeCategory"
-            v-model="categoryId"
-          >
-            <option
-              v-for="category in categories"
-              :key="category.id"
-              :value="category.id"
-            >
-              {{ category.name }}
-            </option>
-          </select>
-        </div>
+        <VueSlickCarousel
+          :arrows="false"
+          :dots="false"
+          :slidesToShow="2"
+          :autoplay="true"
+          :speed="2000"
+          class="col-12 ml-auto mr-auto d-md-none d-block mt-4"
+        >
+          <CategoryCard
+            v-for="category in categories.slice(0, 4)"
+            :key="category.id"
+            class="col-11 mb-4"
+            :category="category"
+          />
+        </VueSlickCarousel>
       </div>
 
       <div class="d-flex flex-wrap justify-content-center">
@@ -60,8 +66,12 @@
 
 <script>
 import { mapState } from "vuex";
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default {
+  components:{VueSlickCarousel},
   data() {
     return {
       categoryId: 1,
@@ -71,18 +81,6 @@ export default {
   },
   computed: {
     ...mapState(["products", "categories"]),
-  },
-
-
-  methods: {
-    changeCategory() {
-      this.productByCategory = this.$store.getters.getProductByCategory(
-        this.categoryId
-      );
-
-      this.category = this.$store.getters.getCategoryById(this.categoryId)
-
-    },
   },
 
   head() {

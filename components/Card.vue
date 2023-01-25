@@ -10,7 +10,7 @@
         >{{ lamp.name }}</nuxt-link
       >
     </div>
-    <p class="text-secondary m-0">Lorem, ipsum.</p>
+    <p class="text-secondary m-0 d-md-block d-none">Lorem, ipsum.</p>
     <div class="d-flex justify-content-between">
       <p class="price m-0"><span class="sign">$</span>{{ lamp.price }}</p>
       <div
@@ -167,7 +167,39 @@ export default {
   }
 
   .product-name {
-    font-size: 15px;
+    font-size: 1rem;
+  }
+
+  .price {
+    font-size: 1.2rem;
+  }
+
+  .sign {
+    font-size: 1.2rem;
+  }
+
+  .plus {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 431px) {
+  .product-name {
+    font-size: 0.8rem;
+  }
+
+  .price {
+    font-size: 1rem;
+  }
+
+  .sign {
+    font-size: 1rem;
+  }
+
+  .plus {
+    width: 25px;
+    height: 25px;
   }
 }
 </style>

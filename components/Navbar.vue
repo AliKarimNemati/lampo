@@ -38,7 +38,7 @@
             >
             <nuxt-link
               to="/signup"
-              class="text-light text-decoration-none border rounded-lg p-1 px-2"
+              class="text-light text-decoration-none signup-btn-border rounded-lg p-1 px-2"
               >Sign up</nuxt-link
             >
           </div>
@@ -69,7 +69,7 @@
         <!-- desktop mode -->
         <b-navbar-nav>
           <b-navbar-brand to="/" class="navbar-brand">Lampo</b-navbar-brand>
-          <b-nav-item to="/#products" active>Product</b-nav-item>
+          <b-nav-item to="/products" active>Product</b-nav-item>
           <b-nav-item to="/#features" active>Features</b-nav-item>
           <b-nav-item to="/#contact-us" active>Contact</b-nav-item>
         </b-navbar-nav>
@@ -124,7 +124,7 @@
               to="/signup"
               class="
                 text-light text-decoration-none
-                border
+                signup-btn-border
                 rounded-lg
                 p-1
                 px-2
@@ -210,7 +210,7 @@
             >Home</nuxt-link
           >
           <nuxt-link
-            to="/#products"
+            to="/products"
             class="text-light ml-4 mt-3 text-decoration-none"
             active
             >Product</nuxt-link
@@ -323,5 +323,14 @@ export default {
 .cart-card-img {
   height: 80px;
   border-radius: 10px;
+}
+
+.signup-btn-border{
+  border: 1.6px solid #ff5c01;
+}
+
+.signup-btn-border:hover{
+  background: #ff5c01;
+  color: #181818;
 }
 </style>

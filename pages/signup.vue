@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex flex-column h-100 justify-content-center mt-5 pt-5">
-    <div class="logIn col-md-5 col-10 rounded-lg p-5 box-shadow">
+    <div class="logIn col-md-5 col-10 rounded-lg p-md-5 p-4 box-shadow">
       <h2 class="text-uppercase text-light text-center fs-1">signUp</h2>
       <p class="text-secondary text-center">Please fill out this form!</p>
 
