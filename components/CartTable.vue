@@ -1,7 +1,7 @@
 <template>
   <div class="p-4">
     <div
-      class="col-md-6 col-12 ml-auto mr-auto d-flex cart-item p-4 rounded mb-4"
+      class="col-md-6 col-12 ml-auto mr-auto d-flex cart-item p-3 rounded mb-4"
       v-for="cartItem in cart"
       :key="cartItem.id"
     >
@@ -9,9 +9,11 @@
         <img :src="'img/' + cartItem.img" class="w-100 h-100 rounded" />
       </div>
       <div class="ml-4">
-        <nuxt-link :to="'products/' + cartItem.id" class="h2 text-light">{{
-          cartItem.name
-        }}</nuxt-link>
+        <nuxt-link
+          :to="'products/' + cartItem.id"
+          class="cart-name text-light"
+          >{{ cartItem.name }}</nuxt-link
+        >
         <p class="text-secondary col-8 p-0 d-md-block d-none">
           Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur
           adipisicing
@@ -40,7 +42,16 @@
             "
           ></span>
         </div>
-        <button class="mb-0 remove-item" @click="removeItems(cartItem.id)">remove</button>
+        <button
+          class="mb-0 remove-item"
+          @click="
+            {
+              removeItems(cartItem.id);
+            }
+          "
+        >
+          remove
+        </button>
       </div>
     </div>
 
@@ -130,6 +141,10 @@ export default {
   background: #343a40;
 }
 
+.cart-name {
+  font-size: 2rem;
+}
+
 .delete-items {
   cursor: pointer;
   transition: 0.4;
@@ -187,6 +202,10 @@ export default {
 
   .count-item p {
     font-size: 16px;
+  }
+
+  .cart-name {
+    font-size: 1.5rem;
   }
 }
 </style>

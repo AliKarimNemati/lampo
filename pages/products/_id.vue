@@ -61,9 +61,9 @@
           v-if="itemsFromCart == undefined"
           @click="
             () => {
-              showAlert();
               addItems(lamp.id);
               addCartItemCount(lamp.id);
+              showAlert();
             }
           "
         >
@@ -71,38 +71,17 @@
         </div>
       </div>
     </div>
-
-    <!-- Alert -->
-    <div class="alert">
-      <b-alert
-        :show="dismissCountDown"
-        dismissible
-        variant="success"
-        @dismissed="dismissCountDown = 0"
-        @dismiss-count-down="countDownChanged"
-      >
-        <p>added to cart successfully</p>
-        <b-progress
-          variant="success"
-          :max="dismissSecs"
-          :value="dismissCountDown"
-          height="4px"
-        ></b-progress>
-      </b-alert>
-    </div>
   </div>
 </template>
 
 <script>
 import { mapMutations } from "vuex";
+import Swal from "sweetalert2";
 
 export default {
   data() {
     return {
       lamp: this.$store.getters.getProductById(this.$route.params.id),
-      dismissSecs: 3,
-      dismissCountDown: 0,
-      showDismissibleAlert: false,
       itemsFromCart: {},
     };
   },
@@ -114,13 +93,28 @@ export default {
       "minCartItemCount",
       "addItems",
     ]),
-
-    countDownChanged(dismissCountDown) {
-      this.dismissCountDown = dismissCountDown;
-    },
     showAlert() {
-      this.dismissCountDown = this.dismissSecs;
-    },
+        this.itemsFromCart = this.$store.getters.getItemsFromCart(Number(this.lamp.id));
+       const Toast = Swal.mixin({
+        toast: true,
+        position: "top-start",
+        showConfirmButton: false,
+        timer: 2500,
+        timerProgressBar: true,
+        width: "20rem",
+        color: "#ffff",
+        background: "#2a2a2a",
+        didOpen: (toast) => {
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
+      });
+
+      Toast.fire({
+        icon: "success",
+        title: "added to cart successfully",
+      });
+    }
   },
 
   mounted() {
