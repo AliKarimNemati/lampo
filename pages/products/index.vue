@@ -5,13 +5,13 @@
     </div>
 
     <div class="p-md-5 p-3">
-      <div class="">
+      <div>
         <h2 class="text-center header-feature h1">{{ category.name }}</h2>
 
         <!-- category large mode -->
         <div
           class="
-            d-none d-md-flex
+            d-none d-lg-flex
             justify-content-center
             flex-wrap
             border-bottom
@@ -32,7 +32,7 @@
           :slidesToShow="2"
           :autoplay="true"
           :speed="2000"
-          class="col-12 ml-auto mr-auto d-md-none d-block mt-4"
+          class="col-12 col-md-10 ml-auto mr-auto d-lg-none d-block mt-4"
         >
           <CategoryCard
             v-for="category in categories.slice(0, 4)"

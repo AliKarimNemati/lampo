@@ -1,7 +1,7 @@
 <template>
-  <div class="p-md-5 p-4" id="features">
+  <div class="p-lg-5 p-4" id="features">
     <div class="d-flex flex-wrap">
-      <div class="col-md-3 mt-5 hero-txt-para-hidden">
+      <div class="col-lg-3 col-md-4 mt-5 hero-txt-para-hidden">
         <h2 class="header-feature h1">See more of our flash sales</h2>
         <p class="text-secondary">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore odit
@@ -17,8 +17,9 @@
       <div
         class="
           d-none
-          d-md-flex
+          d-lg-flex
           flex-wrap
+          
         "
       >
         <CategoryCard
@@ -35,7 +36,7 @@
         :slidesToShow="2"
         :autoplay="true"
         :speed="2000"
-        class="col-12 ml-auto mr-auto d-md-none d-block mt-4"
+        class="col-12 col-md-8 ml-auto mr-auto d-lg-none d-block mt-4"
       >
         <CategoryCard
           v-for="category in categories.slice(0, 4)"
@@ -47,10 +48,10 @@
     </div>
 
     <div class="mt-5 d-flex flex-wrap">
-      <div class="feature-img col-md-4 col-12 d-none d-md-block">
+      <div class="feature-img col-lg-4 col-md-5 col-12 d-none d-md-block">
         <img src="img/lamp1.jpg" class="w-100 h-100" />
       </div>
-      <div class="col-md-5 col-12 mt-5 ml-md-5 ml-0 hero-txt-para-hidden">
+      <div class="col-lg-5 col-md-6 col-12 mt-5 ml-md-5 ml-0 hero-txt-para-hidden">
         <h2 class="header-feature h1 col-md-8 col-12">
           Why should you choose us as your partner
         </h2>

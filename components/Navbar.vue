@@ -6,7 +6,7 @@
         v-b-toggle.sidebar-backdrop
       ></i>
 
-      <div class="d-flex d-md-none">
+      <div class="d-flex d-lg-none">
         <div class="align-self-center mr-3">
 
           <!-- user info -->

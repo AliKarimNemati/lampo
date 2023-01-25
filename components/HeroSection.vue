@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="d-flex flex-wrap p-md-5 p-4">
-      <div class="hero-img col-md-4 d-none d-md-block">
+    <div class="d-flex flex-wrap p-lg-5 p-4">
+      <div class="hero-img col-lg-4 col-md-5 d-none d-md-block">
         <img src="img/chandelier5.jpg" class="w-100 h-100" />
       </div>
 
-      <div class="col-md-5 col-12 pr-md-5 pl-md-5 ml-md-5 mt-md-3">
+      <div class="col-lg-5 col-md-7 col-12 pr-lg-5 pl-lg-5 ml-lg-5 mt-lg-3">
         <h1 class="header-txt hero-txt-hidden">Light Up Your Home</h1>
         <p class="text-secondary hero-txt-para-hidden">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eos eum

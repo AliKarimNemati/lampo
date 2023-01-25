@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex flex-column h-100 justify-content-center mt-5 pt-5">
-    <div class="logIn col-md-5 col-10 rounded-lg p-5 box-shadow">
+    <div class="logIn col-md-5 col-10 rounded-lg p-lg-5 p-4 box-shadow">
       <p class="text-secondary text-center">Please enter your email!</p>
 
       <b-form @submit.stop.prevent class="inputs">
@@ -33,7 +33,7 @@
             class="
               buy-btn
               rounded-lg
-              col-md-2 col-4
+              col-lg-2 col-4
               shop-btn
               rounded-pill
               p-2
@@ -59,39 +59,17 @@
         </div>
       </b-form>
     </div>
-
-    <!-- Alert -->
-    <div class="alert">
-      <b-alert
-        :show="dismissCountDown"
-        dismissible
-        variant="success"
-        @dismissed="dismissCountDown = 0"
-        @dismiss-count-down="countDownChanged"
-      >
-        <p>We sent an email successfully.</p>
-        <p>Check your email!</p>
-        <b-progress
-          variant="success"
-          :max="dismissSecs"
-          :value="dismissCountDown"
-          height="4px"
-        ></b-progress>
-      </b-alert>
-    </div>
   </div>
 </template>
 
 <script>
+import Swal from "sweetalert2";
 export default {
   data() {
     return {
       email: "",
       submited: false,
-      emailErrors: true,
-      dismissSecs: 5,
-      dismissCountDown: 0,
-      showDismissibleAlert: false,
+      emailErrors: undefined,
     };
   },
 
@@ -110,11 +88,27 @@ export default {
   },
 
   methods: {
-    countDownChanged(dismissCountDown) {
-      this.dismissCountDown = dismissCountDown;
-    },
     showAlert() {
-      this.dismissCountDown = this.dismissSecs;
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-start",
+        showConfirmButton: false,
+        timer: 2500,
+        timerProgressBar: true,
+        width: "25rem",
+        color: "#ffff",
+        background: "#2a2a2a",
+        didOpen: (toast) => {
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
+      });
+
+      Toast.fire({
+        icon: "success",
+        title: "We sent an email successfully.",
+        text: "Check your email!",
+      });
     },
   },
 
@@ -137,5 +131,26 @@ export default {
 body {
   color: #eee;
   background: #181818;
+}
+
+.logIn {
+  background-color: #2a2a2a;
+  margin: 0 auto;
+}
+
+.inputs input {
+  height: 50px;
+  width: 65%;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+  border: 2px #3498db solid;
+  margin: 0 auto;
+  transition: 0.5s;
+}
+
+.inputs input:focus {
+  width: 70%;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <HeroSection class="mt-5 ml-md-5 pt-5" />
-    <Features class="mt-md-5 ml-md-5" />
+    <HeroSection class="mt-5 ml-lg-5 pt-5" />
+    <Features class="mt-md-5 ml-lg-5" />
     <Products class="mt-5" />
     <ContactUs />
   </div>

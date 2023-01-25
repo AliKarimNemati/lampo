@@ -1,7 +1,7 @@
 <template>
   <div class="p-4">
     <div
-      class="col-md-6 col-12 ml-auto mr-auto d-flex cart-item p-3 rounded mb-4"
+      class="col-lg-6 col-md-10 col-12 ml-auto mr-auto d-flex cart-item p-3 rounded mb-4"
       v-for="cartItem in cart"
       :key="cartItem.id"
     >
@@ -14,7 +14,7 @@
           class="cart-name text-light"
           >{{ cartItem.name }}</nuxt-link
         >
-        <p class="text-secondary col-8 p-0 d-md-block d-none">
+        <p class="text-secondary col-8 p-0 d-lg-block d-none">
           Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur
           adipisicing
         </p>
