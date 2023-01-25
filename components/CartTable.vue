@@ -6,7 +6,7 @@
       :key="cartItem.id"
     >
       <div class="col-4 cart-item-img">
-        <img :src="'img/' + cartItem.img" class="w-100 h-100 rounded" />
+        <nuxt-img :src="'img/' + cartItem.img" class="w-100 h-100 rounded" placeholder/>
       </div>
       <div class="ml-4">
         <nuxt-link

@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="col-4 contact-us-img p-0 d-none d-md-block">
-      <img src="img/chandelier6.jpg" class="w-100 h-100" />
+      <nuxt-img src="img/chandelier6.jpg" class="w-100 h-100" placeholder/>
     </div>
   </div>
 </template>

@@ -48,7 +48,7 @@
 
     <div class="mt-5 d-flex flex-wrap">
       <div class="feature-img col-md-4 col-12 d-none d-md-block">
-        <img src="img/lamp1.jpg" class="w-100 h-100" />
+        <nuxt-img src="img/lamp1.jpg" class="w-100 h-100" placeholder/>
       </div>
       <div class="col-md-5 col-12 mt-5 ml-md-5 ml-0 hero-txt-para-hidden">
         <h2 class="header-feature h1 col-md-8 col-12">

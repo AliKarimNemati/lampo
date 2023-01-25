@@ -1,7 +1,7 @@
 <template>
   <div class="mt-4 card-product-cat bg-dark">
     <div class="card-img-cat col-12">
-      <img :src="'/img/' + category.img" class="w-100 h-100" />
+      <nuxt-img :src="'/img/' + category.img" class="w-100 h-100" placeholder/>
     </div>
     <div class="mt-3">
       <nuxt-link
