@@ -24,8 +24,5 @@
   "description": "## Build Setup",
   "main": "nuxt.config.js",
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@nuxt/image": "^0.7.1"
-  }
+  "license": "ISC"
 }

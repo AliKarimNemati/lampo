@@ -1,7 +1,7 @@
 <template>
   <div class="mt-4 card-product bg-dark">
     <div class="card-img col-12">
-      <nuxt-img :src="'/img/' + lamp.img" class="w-100 h-100" placeholder/>
+      <img :src="'/img/' + lamp.img" class="w-100 h-100" />
     </div>
     <div class="mt-3">
       <nuxt-link
@@ -64,7 +64,7 @@ export default {
       "minCartItemCount",
       "removeItems",
     ]),
-
+    
     showAlert() {
       const Toast = Swal.mixin({
         toast: true,
