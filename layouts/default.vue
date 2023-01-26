@@ -15,7 +15,7 @@ export default {
   beforeMount() {
     this.$nextTick(() => {
       this.$nuxt.$loading.start();
-      setTimeout(() => this.$nuxt.$loading.finish(), 800);
+      setTimeout(() => this.$nuxt.$loading.finish(), 500);
     });
   },
 

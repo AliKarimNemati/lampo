@@ -33,8 +33,8 @@
 
           <!-- signin & sign up -->
           <div v-else>
-            <nuxt-link to="/signin" class="text-light text-decoration-none mr-2"
-              >Sign in</nuxt-link
+            <nuxt-link to="/login" class="text-light text-decoration-none mr-2"
+              >Login</nuxt-link
             >
             <nuxt-link
               to="/signup"
@@ -111,14 +111,14 @@
           <!-- signin & signup -->
           <div class="d-flex" v-else>
             <nuxt-link
-              to="/signin"
+              to="/login"
               class="
                 text-light text-decoration-none
                 mr-3
                 signup-btn
                 align-self-center
               "
-              >Sign in</nuxt-link
+              >Login</nuxt-link
             >
             <nuxt-link
               to="/signup"

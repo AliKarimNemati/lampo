@@ -82,7 +82,7 @@
       <p class="h1 m-0">Total: <span class="sign-total">$</span>{{ total }}</p>
       <nuxt-link
         class="text-light btn shop-btn rounded-pill p-2 pl-4 pr-4 mr-3 mt-5"
-        to="/signin"
+        to="/login"
       >
         Continue
       </nuxt-link>

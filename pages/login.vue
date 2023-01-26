@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-column justify-content-center h-100 mt-5 pt-5">
     <div class="logIn col-md-5 col-10 rounded-lg p-lg-5 p-4">
-      <h2 class="text-uppercase text-light text-center fs-1">signin</h2>
+      <h2 class="text-uppercase text-light text-center fs-1">login</h2>
       <p class="text-secondary text-center">
         Please enter your username and password!
       </p>
@@ -66,7 +66,7 @@
       <div class="submit-logIn">
         <input
           type="button"
-          value="Sign in"
+          value="Login"
           class="rounded-pill d-flex mt-3 text-light p-2 pr-4 pl-4"
           @click="handleSignin"
         />
