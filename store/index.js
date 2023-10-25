@@ -5,7 +5,7 @@ export const state = () => ({
         {
             id: 1,
             name: 'silver chandelier',
-            price: 30,
+            price: 40,
             img: "chandelier1.jpg",
             category: 4,
             count: 0
